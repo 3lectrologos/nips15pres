@@ -1,0 +1,47 @@
+\usetheme{default}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+
+\usefonttheme{professionalfonts}
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Lato Light}
+\setsansfont[Ligatures={Common,TeX}]{Lato Light}
+
+%\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{figures/bg.png}}
+\setbeamercolor{background canvas}{bg=bgcolor}
+\setbeamercolor{structure}{fg=textcolor}
+\setbeamercolor{normal text}{fg=textcolor}
+
+\setbeamertemplate{frametitle} 
+{ 
+%\begin{centering} 
+\vspace{0.2cm}
+\Large
+\color{col1}
+\insertframetitle
+\par 
+%\end{centering} 
+}
+
+\setbeamertemplate{navigation symbols}{}
+\makeatother
+\setbeamertemplate{footline}
+{%
+	\leavevmode%
+	\hbox{\begin{beamercolorbox}[wd=.75\paperwidth,ht=4ex,dp=2ex,leftskip=1cm,rightskip=0cm]{footlinecolortitle}%
+		\inserttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.25\paperwidth,ht=4ex,dp=2ex,leftskip=0cm,rightskip=1cm plus1fil]{footlinecolorrest}%
+			\insertshortauthor\hfill\insertpagenumber
+		\end{beamercolorbox}}%
+		\vskip0pt%
+	}
+	\makeatletter
+\setbeamertemplate{headline}{}
+
+\RequirePackage{enumitem}
+\setlist[itemize,1]{label=\raisebox{1pt}{\scriptsize$\circ$}}
