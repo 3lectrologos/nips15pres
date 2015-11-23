@@ -26,28 +26,61 @@
 \includepdf[pages={1}]{title.pdf}
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{figures/bg.png}}
 
-\begin{frame}{MCMC Sampling}
+\begin{frame}{Markov Chain Monte Carlo}
+\begin{tabular}{*{2}{@{}l}}
+\begin{minipage}{0.45\textwidth}
+\begin{itemize}
+\item State space $\Omega$
+\end{itemize}
+\end{minipage} & \color{col1}subset lattice on $V$\\[1em]
+\begin{minipage}{0.45\textwidth}
+\begin{itemize}
+\item Transition matrix $P$
+\end{itemize}
+\end{minipage} & \color{col1}Gibbs sampler
+\end{tabular}
+
+\vspace{3em}
+Define Markov chain $\left(X_t\right)_t$ that moves according to $P$
+
+\vspace{2em}
+\begin{tabular}{*{2}{@{}l}}
+\begin{minipage}{0.45\textwidth}
+\begin{itemize}
+\item Stationary distribution $\pi$
+\end{itemize}
+\end{minipage} & \color{col1}PSM distribution
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Markov Chain Monte Carlo}
 \vspace{0.5em}
 \centering
 \includegraphics[height=3in]{figures/lattice_nodes_only.pdf}
 \end{frame}
 
-\begin{frame}{MCMC Sampling}
+\begin{frame}{Markov Chain Monte Carlo}
 \vspace{0.5em}
 \centering
 \includegraphics[height=3in]{figures/lattice_example_node.pdf}
 \end{frame}
 
-\begin{frame}{MCMC Sampling}
+\begin{frame}{Markov Chain Monte Carlo}
 \vspace{0.5em}
 \centering
 \includegraphics[height=3in]{figures/lattice_example_edges.pdf}
 \end{frame}
 
-\begin{frame}{MCMC Sampling}
+\begin{frame}{Markov Chain Monte Carlo}
 \vspace{0.5em}
 \centering
 \includegraphics[height=3in]{figures/lattice_full.pdf}
+\end{frame}
+
+\begin{frame}{Markov Chain Monte Carlo}
+\vspace{0.5em}
+\centering
+\includegraphics[height=3in]{figures/lattice_full_binary.pdf}
 \end{frame}
 
 %\begin{frame}{Segmentation}
