@@ -1,0 +1,97 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+\colorlet{col1light}{col1!50!textcolor}
+\definecolor{col2}{HTML}{F279DF}
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+\setsansfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\begin{axis}[%
+tick label style={font=\large},
+label style={font=\Large},
+legend style={font=\large},
+width=6in,
+height=4.3in,
+xmin=0, xmax=19,
+xtick={0, 2, 4, 6, 8, 10, 12, 14, 16, 18},
+xticklabel shift=4pt,
+xlabel={Number of conditioned elements},
+xlabel shift=4pt,
+ymin=0, ymax=0.122,
+ylabel={Mean absolute error},
+yticklabel shift=4pt,
+ylabel shift=4pt,
+tick label style={/pgf/number format/fixed},
+major tick length=4pt,
+axis lines*=left,
+axis line style={textcolor,line width=2pt,line cap=round},
+every axis label/.append style ={textcolor},
+every tick/.append style={textcolor},
+every tick label/.append style={textcolor},
+legend cell align=left,
+clip=false,
+legend style={at={(0.97,0.97)},draw=none,fill=none,row sep=4pt,text=textcolor}]
+
+\addplot [
+mark=*,
+mark size=1.5pt,
+mark options={solid},
+color=col2!70!black,
+densely dotted,
+line width=2pt,
+error bars/.cd,
+error bar style={solid, line width=1pt},
+error mark options={
+  rotate=90,
+  mark size=2pt,
+  line width=1pt
+},
+y dir=both,
+y explicit
+]
+coordinates{
+(0,0.107112366513)+- (2*0.00282243732842,2*0.00282243732842)(1,0.102922727287)+- (2*0.00298300698246,2*0.00298300698246)(2,0.0989540227828)+- (2*0.00303553867607,2*0.00303553867607)(3,0.0933829762656)+- (2*0.0031887954654,2*0.0031887954654)(4,0.0884069245638)+- (2*0.00337880496923,2*0.00337880496923)(5,0.0830474851382)+- (2*0.00339501861505,2*0.00339501861505)(6,0.0775476811889)+- (2*0.00353394763276,2*0.00353394763276)(7,0.072385269695)+- (2*0.00380613101446,2*0.00380613101446)(8,0.0690821376507)+- (2*0.0038559982422,2*0.0038559982422)(9,0.065985132415)+- (2*0.00423482988602,2*0.00423482988602)(10,0.0568044604494)+- (2*0.00405291178904,2*0.00405291178904)(11,0.0491925976389)+- (2*0.00407966954557,2*0.00407966954557)(12,0.0419781500303)+- (2*0.00434479981779,2*0.00434479981779)(13,0.0354290127274)+- (2*0.00410883118785,2*0.00410883118785)(14,0.0255396708993)+- (2*0.00333079208498,2*0.00333079208498)(15,0.021219417454)+- (2*0.0034504548739,2*0.0034504548739)(16,0.014942265471)+- (2*0.00320834756581,2*0.00320834756581)(17,0.00853834955108)+- (2*0.00274088479292,2*0.00274088479292)(18,0.00226092205199)+- (2*0.00144656700754,2*0.00144656700754)(19,4.35762537165e-17)+- (2*1.25377498951e-17,2*1.25377498951e-17)
+};
+\addlegendentry{Variational (upper)}
+
+\addplot [
+mark=*,
+mark size=1.5pt,
+mark options={solid},
+color=col2,
+densely dotted,
+line width=2pt,
+error bars/.cd,
+error bar style={solid, line width=1pt},
+error mark options={
+  rotate=90,
+  mark size=2pt,
+  line width=1pt
+},
+y dir=both,
+y explicit
+]
+coordinates{
+(0,0.0787440547093)+- (2*0.00298005197383,2*0.00298005197383)(1,0.0742436730701)+- (2*0.00300217288835,2*0.00300217288835)(2,0.0718495604506)+- (2*0.00300216884821,2*0.00300216884821)(3,0.0677111346104)+- (2*0.00295406374421,2*0.00295406374421)(4,0.0631260247356)+- (2*0.00311734469971,2*0.00311734469971)(5,0.0601601130807)+- (2*0.00325485666533,2*0.00325485666533)(6,0.0555257803471)+- (2*0.0031801160993,2*0.0031801160993)(7,0.0516901198864)+- (2*0.00318849306217,2*0.00318849306217)(8,0.048428101947)+- (2*0.0030393789569,2*0.0030393789569)(9,0.0458999042102)+- (2*0.0031872052514,2*0.0031872052514)(10,0.0405156780929)+- (2*0.0031714204449,2*0.0031714204449)(11,0.0364292133548)+- (2*0.00322356186706,2*0.00322356186706)(12,0.0322789974519)+- (2*0.00353817833988,2*0.00353817833988)(13,0.0274526157463)+- (2*0.00330213737196,2*0.00330213737196)(14,0.0205765371103)+- (2*0.00273419570942,2*0.00273419570942)(15,0.0164503607956)+- (2*0.00282431409588,2*0.00282431409588)(16,0.0107574971385)+- (2*0.00234170467672,2*0.00234170467672)(17,0.00665211260322)+- (2*0.00230003884272,2*0.00230003884272)(18,0.00224240965205)+- (2*0.00129450418703,2*0.00129450418703)(19,4.35762537165e-17)+- (2*1.25377498951e-17,2*1.25377498951e-17)
+};
+\addlegendentry{Variational (lower)}
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
