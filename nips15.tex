@@ -2,18 +2,28 @@
 
 \usepackage{nips15}
 
-%---
+%-----------------------------------------------------------------------
 \usepackage{pdfpages}
 \usepackage{array}
 \usepackage[skins,breakable]{tcolorbox}
 \usepackage{minibox}
+\usepackage{mathtools}
 
 \newcommand{\qcite}[1]{{\scriptsize\color{col2}[#1]}}
-\newcommand{\ticksym}{\includegraphics[width=0.03\linewidth]{figures/tick2.png}\hspace{0.2em}}
-\newcommand{\mycbox}[1]{\begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=2pt,coltext=black,colframe=col1light,colback=col1,opacityback=0.8,opacityframe=1]
+\newcommand{\qbox}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=1pt,coltext=black,colframe=col1light,colback=col1,opacityback=0.7,opacityframe=1]
 \strut #1
-\end{tcolorbox}}
-%---
+\end{tcolorbox}%
+}
+\newcommand{\qtheorem}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=1pt,coltext=textcolor,colframe=col2,colback=col1,opacityback=0,opacityframe=1]
+\begin{minipage}{\textwidth}
+{\color{col2}\strut Theorem}\\[0.7em]
+#1
+\end{minipage}
+\end{tcolorbox}%
+}
+%-----------------------------------------------------------------------
 
 \title[Sampling from Probabilistic Submodular Models]
 {Sampling from Probabilistic Submodular Models}
@@ -137,7 +147,7 @@ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0
 }
 
 \uncover<4->{
-\mycbox{How long does it take to get ``close enough" to $\pi$?}
+\qbox{How long does it take to get ``close enough" to $\pi$?}
 }
 
 \uncover<5->{
@@ -155,10 +165,61 @@ Mixing times for general PSMs are exponential in $|V|$
 \vspace{1em}
 Exponential even for pairwise models \qcite{Jerrum and Sinclair, '93}
 
-\vspace{3em}
-\mycbox{\minibox{We establish sufficient conditions for polynomial-time and fast mixing\\of the Gibbs sampler on PSMs.}}
+\vspace{4em}
+\qbox{\minibox{We establish sufficient conditions for sub-exponential mixing\\of the Gibbs sampler on PSMs.}}
 \end{frame}
 
-%\input{venn}
+\begin{frame}{Polynomial-time Mixing}
+\vspace{0.5em}
+\includegraphics[width=3.9in,trim=5 0 0 0,clip]{figures/ineq_mod.pdf}
+
+\vspace{4em}
+``Distance" from modularity
+\begin{align*}
+\zeta_F \coloneqq \max_{A, B \subseteq V} \big|F(A) + F(B) - F(A \cup B) - F(A \cap B)\big|
+\end{align*}
+\end{frame}
+
+\begin{frame}{Polynomial-time Mixing}
+\qtheorem{
+For any set function $F$, the mixing time of the Gibbs sampler is bounded by
+\vspace{-1em}
+\begin{align*}
+t_{\textrm{mix}} \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+\end{align*}
+}
+\end{frame}
+
+\begin{frame}{Polynomial-time Mixing}
+\qtheorem{
+For any set function $F$, the mixing time of the Gibbs sampler is bounded by
+\vspace{-1em}
+\begin{align*}
+t_{\textrm{mix}} \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+\end{align*}
+
+\vspace{0.5em}
+If $F$ is submodular or supermodular the bound is improved to
+\begin{align*}
+t_{\textrm{mix}} \leq 2n^2 \exp(\beta\zeta_f)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+\end{align*}
+}
+\end{frame}
+
+\begin{frame}{Polynomial-time Mixing}
+\qtheorem{
+For any set function $F$, the mixing time of the Gibbs sampler is bounded by
+\vspace{-1em}
+\begin{align*}
+t_{\textrm{mix}} \leq 2n^2 \exp({\color{col2}2}\beta\zeta_{\color{col2}F})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+\end{align*}
+
+\vspace{0.5em}
+If $F$ is submodular or supermodular the bound is improved to
+\begin{align*}
+t_{\textrm{mix}} \leq 2n^2 \exp(\beta\zeta_{\color{col2}f})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+\end{align*}
+}
+\end{frame}
 
 \end{document}
