@@ -111,24 +111,41 @@ For $t = 1, 2, \ldots$
 
 \begin{frame}{Gibbs Sampler for PSMs}
 \vspace{1em}
-Total variation distance:
+Total variation distance
+\only<1>{
 \begin{align*}
-d(t) = \max \left\{d_{\mathrm{tv}}\left(\mathbb{P}_{X_t}, \pi\right) \mid X_0 \in \Omega\right\}
+d(t) = d_{\mathrm{tv}}\left(\mathbb{P}_{X_t}, \pi\right)
+\end{align*}}
+\only<2>{
+\begin{align*}
+d(t) = {\color{col1}\max \{}d_{\mathrm{tv}}\left(\mathbb{P}_{X_t}, \pi\right) {\color{col1}\mid X_0 \in \Omega\}}
 \end{align*}
+}
+\uncover<3->{
+\begin{align*}
+d(t) = \max \{d_{\mathrm{tv}}\left(\mathbb{P}_{X_t}, \pi\right) \mid X_0 \in \Omega\}
+\end{align*}
+}
 
+\uncover<3->{
 \vspace{1em}
 Under mild assumptions (ergodicity),
 \begin{align*}
 d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0
 \end{align*}
+}
 
+\uncover<4->{
 \mycbox{How long does it take to get ``close enough" to $\pi$?}
+}
 
+\uncover<5->{
 \vspace{1em}
 Mixing time
 \begin{align*}
 t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}
 \end{align*}
+}
 \end{frame}
 
 %\input{venn}
