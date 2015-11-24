@@ -16,7 +16,7 @@
 \end{tcolorbox}%
 }
 \newcommand{\qtheorem}[1]{%
-\begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=1pt,coltext=textcolor,colframe=col2,colback=col1,opacityback=0,opacityframe=1]
+\begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=0.7pt,coltext=textcolor,colframe=col2,colback=col1,opacityback=0,opacityframe=1]
 \begin{minipage}{\textwidth}
 {\color{col2}\strut Theorem}\\[0.7em]
 #1
@@ -185,7 +185,28 @@ Exponential even for pairwise models \qcite{Jerrum and Sinclair, '93}
 For any set function $F$, the mixing time of the Gibbs sampler is bounded by
 \vspace{-1em}
 \begin{align*}
-t_{\textrm{mix}} \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+\end{align*}
+}
+\end{frame}
+
+\begin{frame}{Polynomial-time Mixing}
+\vspace{0.5em}
+\includegraphics[width=3.9in]{figures/decomp.pdf}
+\end{frame}
+
+\begin{frame}{Polynomial-time Mixing}
+\qtheorem{
+For any set function $F$, the mixing time of the Gibbs sampler is bounded by
+\vspace{-1em}
+\begin{align*}
+t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+\end{align*}
+
+\vspace{0.5em}
+If $F$ is submodular or supermodular the bound is improved to
+\begin{align*}
+t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(\beta\zeta_f)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
 \end{align*}
 }
 \end{frame}
@@ -195,29 +216,13 @@ t_{\textrm{mix}} \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\e
 For any set function $F$, the mixing time of the Gibbs sampler is bounded by
 \vspace{-1em}
 \begin{align*}
-t_{\textrm{mix}} \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp({\color{col1}2}\beta\zeta_{\color{col1}F})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
 \end{align*}
 
 \vspace{0.5em}
 If $F$ is submodular or supermodular the bound is improved to
 \begin{align*}
-t_{\textrm{mix}} \leq 2n^2 \exp(\beta\zeta_f)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
-\end{align*}
-}
-\end{frame}
-
-\begin{frame}{Polynomial-time Mixing}
-\qtheorem{
-For any set function $F$, the mixing time of the Gibbs sampler is bounded by
-\vspace{-1em}
-\begin{align*}
-t_{\textrm{mix}} \leq 2n^2 \exp({\color{col2}2}\beta\zeta_{\color{col2}F})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
-\end{align*}
-
-\vspace{0.5em}
-If $F$ is submodular or supermodular the bound is improved to
-\begin{align*}
-t_{\textrm{mix}} \leq 2n^2 \exp(\beta\zeta_{\color{col2}f})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(\beta\zeta_{\color{col1}f})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
 \end{align*}
 }
 \end{frame}
