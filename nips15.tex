@@ -83,55 +83,33 @@ Define Markov chain $\left(X_t\right)_t$ that moves according to $P$
 \includegraphics[height=3in]{figures/lattice_full_binary.pdf}
 \end{frame}
 
-%\begin{frame}{Segmentation}
+\begin{frame}{Gibbs Sampler for PSMs}
+\vspace{1em}
 %\begin{columns}[c]
-%\column{0.5\textwidth}
+%\column{0.53\textwidth}
+Start at $X_0$
+
+\vspace{1.1em}
+For $t = 1, 2, \ldots$
+\vspace{1.1em}
+\begin{itemize}
+\item Select random $v \in V$
+\vspace{1.1em}
+\item $\Delta \leftarrow F(X_t \cup \{v\}) - F(X_t \setminus \{v\})$
+\vspace{1.1em}
+\item $p_{\textrm{add}} \leftarrow e^{\beta \Delta} / \left(1 + e^{\beta \Delta}\right)$
+\vspace{1.1em}
+\item Flip biased coin
+
+\vspace{-1em}
+\begin{minipage}{0.5\textwidth}\vspace{2em}\includegraphics[width=2.7in]{figures/gibbs.pdf}\end{minipage}
+\end{itemize}
+%\column{0.40\textwidth}
 %\centering
-%\includegraphics[width=1.8in]{figures/bee.jpg}
-%\column{0.5\textwidth}
-%\centering
-%\includegraphics[width=1.8in]{figures/bee_fbp1.png}
+%\includegraphics[width=1.7in]{figures/lattice_full.pdf}
 %\end{columns}
-%\end{frame}
-
-\begin{frame}{Landscape of Models}
-\centering
-\includegraphics[width=4.3in]{figures/venn01.pdf}
 \end{frame}
 
-\begin{frame}{Landscape of Models}
-\centering
-\includegraphics[width=4.3in]{figures/venn02.pdf}
-\end{frame}
-
-\begin{frame}{Landscape of Models}
-\centering
-\includegraphics[width=4.3in]{figures/venn03.pdf}
-\end{frame}
-
-\begin{frame}{Landscape of Models}
-\centering
-\includegraphics[width=4.3in]{figures/venn04.pdf}
-\end{frame}
-
-\begin{frame}{Landscape of Models}
-\centering
-\includegraphics[width=4.3in]{figures/venn05.pdf}
-\end{frame}
-
-\begin{frame}{Landscape of Models}
-\centering
-\includegraphics[width=4.3in]{figures/venn06.pdf}
-\end{frame}
-
-\begin{frame}{Landscape of Models}
-\centering
-\includegraphics[width=4.3in]{figures/venn07.pdf}
-\end{frame}
-
-\begin{frame}{Landscape of Models}
-\centering
-\includegraphics[width=4.3in]{figures/venn08.pdf}
-\end{frame}
+%\input{venn}
 
 \end{document}
