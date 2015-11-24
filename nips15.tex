@@ -5,8 +5,13 @@
 %---
 \usepackage{pdfpages}
 \usepackage{array}
+\usepackage[skins,breakable]{tcolorbox}
+
 \newcommand{\qcite}[1]{{\scriptsize\color{gray}[#1]}}
 \newcommand{\ticksym}{\includegraphics[width=0.03\linewidth]{figures/tick2.png}\hspace{0.2em}}
+\newcommand{\mycbox}[1]{\begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=2pt,coltext=black,colframe=col1,colback=col1,opacityback=0.8,opacityframe=1]
+\strut #1
+\end{tcolorbox}}
 %---
 
 \title[Sampling from Probabilistic Submodular Models]
@@ -85,8 +90,6 @@ Define Markov chain $\left(X_t\right)_t$ that moves according to $P$
 
 \begin{frame}{Gibbs Sampler for PSMs}
 \vspace{1em}
-%\begin{columns}[c]
-%\column{0.53\textwidth}
 Start at $X_0$
 
 \vspace{1.1em}
@@ -104,10 +107,28 @@ For $t = 1, 2, \ldots$
 \vspace{-1em}
 \begin{minipage}{0.5\textwidth}\vspace{2em}\includegraphics[width=2.7in]{figures/gibbs.pdf}\end{minipage}
 \end{itemize}
-%\column{0.40\textwidth}
-%\centering
-%\includegraphics[width=1.7in]{figures/lattice_full.pdf}
-%\end{columns}
+\end{frame}
+
+\begin{frame}{Gibbs Sampler for PSMs}
+\vspace{1em}
+Total variation distance:
+\begin{align*}
+d(t) = \max \left\{d_{\mathrm{tv}}\left(\mathbb{P}_{X_t}, \pi\right) \mid X_0 \in \Omega\right\}
+\end{align*}
+
+\vspace{1em}
+Under mild assumptions (ergodicity),
+\begin{align*}
+d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0
+\end{align*}
+
+\mycbox{How long does it take to get ``close enough" to $\pi$?}
+
+\vspace{1em}
+Mixing time
+\begin{align*}
+t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}
+\end{align*}
 \end{frame}
 
 %\input{venn}
