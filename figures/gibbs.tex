@@ -6,6 +6,7 @@
 \definecolor{bgcolor}{HTML}{2e3037}
 \definecolor{textcolor}{HTML}{EEEEFF}
 \definecolor{col1}{HTML}{39c0ba}
+\definecolor{col2}{HTML}{F279DF}
 
 \RequirePackage{fontspec}
 \RequirePackage{xunicode}
@@ -26,10 +27,10 @@
   LT/.style={midway,text=col1,font=\scriptsize}
   ]
   \node[NN,minimum width=13em,fill=col1] (padd) at (0,0) {$p_{\textrm{add}}$};
-  \node[NN,minimum width=8em] (prem) at (2.46,0) {$1 - p_{\textrm{add}}$};
+  \node[NN,minimum width=8em,fill=col2] (prem) at (2.46,0) {$1 - p_{\textrm{add}}$};
   
   \node[text=col1,font=\large] (xadd) at (0,-0.7) {$X_t \leftarrow X_t \cup \{v\}$};
-  \node[text=textcolor,font=\large] (xrev) at (2.5,-0.7) {$X_t \leftarrow X_t \setminus \{v\}$};
+  \node[text=col2,font=\large] (xrev) at (2.5,-0.7) {$X_t \leftarrow X_t \setminus \{v\}$};
 \end{tikzpicture}
 
 \end{document}
