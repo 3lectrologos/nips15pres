@@ -42,13 +42,51 @@
 \includepdf[pages={1}]{title.pdf}
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{figures/bg.png}}
 
+\begin{frame}{Higher-order Models}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\only<1>{\includegraphics[width=1.85in]{figures/bee.jpg}}
+\only<2-3,7>{\includegraphics[width=1.85in]{figures/bee_superpixels.png}}
+\only<4-6>{\includegraphics[width=1.85in]{figures/bee_superpixels_hl_v1.pdf}}
+\column{0.5\textwidth}
+\uncover<3->{
+$V = V_1 \cup V_2 \cup \cdots \cup V_L$
+}
+
+\uncover<5->{
+\vspace{1em}
+$F_i(S) = \phi\left(|S \cap V_i|\right)$
+}
+
+\uncover<6->{
+\vspace{1.3em}
+\hspace{-1.5em}\includegraphics[width=2.15in]{figures/convex_over_modular.pdf}
+}
+
+\uncover<7->{
+\vspace{0.5em}
+$F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
+}
+
+%\uncover<7->{
+%\vspace{1em}
+%$|V_i| \approx 10^5$\\[0.5em]
+%}
+%\uncover<8->{
+%$L \approx 50$
+%}
+\end{columns}
+\end{frame}
+
 \begin{frame}{Markov Chain Monte Carlo}
 \begin{tabular}{*{2}{@{}l}}
 \begin{minipage}{0.45\textwidth}
 \begin{itemize}
 \item State space $\Omega$
 \end{itemize}
-\end{minipage} & \color{col1}subset lattice on $V$\\[1em]
+\end{minipage} & \color{col1}powerset of $V$\\[1em]
 \begin{minipage}{0.45\textwidth}
 \begin{itemize}
 \item Transition matrix $P$

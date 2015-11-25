@@ -1,0 +1,30 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+\usepackage{minibox}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+\colorlet{col1light}{col1!50!textcolor}
+\definecolor{col2}{HTML}{F279DF}
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+\setsansfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  scale=1.5,
+  >=latex,
+  line join=bevel,
+  NS/.style={draw=textcolor,text=textcolor,minimum size=1em,font=\scriptsize,anchor=north,line width=0.3pt}
+  ]
+  \node[text=textcolor] (c) at (1.8,-0.3) {$V_i$};
+\end{tikzpicture}
+
+\end{document}

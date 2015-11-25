@@ -1,0 +1,67 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+\colorlet{col1light}{col1!50!textcolor}
+\definecolor{col2}{HTML}{F279DF}
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+\setsansfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\begin{axis}[%
+tick label style={font=\Huge},
+label style={font=\Huge},
+legend style={font=\Huge},
+width=6in,
+height=4.3in,
+xmin=0, xmax=10,
+xtick={0, 10},
+xticklabels={$0$, $|V_i|$},
+xticklabel shift=8pt,
+xlabel={$|S \cap V_i|$},
+xlabel shift=-18pt,
+ymin=0, ymax=1,
+ytick={0, 1},
+yticklabels={$0$, $\phi_{\mathrm{max}}$},
+ylabel={$\phi$},
+yticklabel shift=8pt,
+ylabel shift=-40pt,
+tick label style={/pgf/number format/fixed},
+major tick length=6pt,
+axis lines*=left,
+axis line style={textcolor,line width=4pt,line cap=round},
+every axis label/.append style ={textcolor},
+every tick/.append style={textcolor},
+every tick label/.append style={textcolor},
+legend cell align=left,
+clip=false,
+legend style={at={(0.97,0.97)},draw=none,fill=none,row sep=4pt,text=textcolor}]
+
+\addplot [
+domain=0:10,
+samples=200,
+mark=none,
+mark options={solid},
+color=col1,
+solid,
+line width=5pt
+]
+{1 + (x^2 - 10*x)/25};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
