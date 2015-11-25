@@ -23,6 +23,15 @@
 \end{minipage}
 \end{tcolorbox}%
 }
+
+\newcommand{\qlemma}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=0.7pt,coltext=textcolor,colframe=col2,colback=col1,opacityback=0,opacityframe=1]
+\begin{minipage}{\textwidth}
+{\color{col2}\strut Lemma}\\[0.7em]
+#1
+\end{minipage}
+\end{tcolorbox}%
+}
 %-----------------------------------------------------------------------
 
 \title[Sampling from Probabilistic Submodular Models]
@@ -221,7 +230,7 @@ Exponential even for pairwise models \qcite{Jerrum and Sinclair, '93}
 \begin{frame}{Polynomial-time Mixing}
 \qtheorem{
 For any set function $F$, the mixing time of the Gibbs sampler is bounded by
-\vspace{-1em}
+\vspace{-0.5em}
 \begin{align*}
 t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
 \end{align*}
@@ -236,13 +245,14 @@ t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\
 \begin{frame}{Polynomial-time Mixing}
 \qtheorem{
 For any set function $F$, the mixing time of the Gibbs sampler is bounded by
-\vspace{-1em}
+\vspace{-0.5em}
 \begin{align*}
 t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
 \end{align*}
 
 \vspace{0.5em}
 If $F$ is submodular or supermodular the bound is improved to
+\vspace{-0.5em}
 \begin{align*}
 t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(\beta\zeta_f)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
 \end{align*}
@@ -252,17 +262,105 @@ t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(\beta\zeta_f)\log\left(\displaystyle\f
 \begin{frame}{Polynomial-time Mixing}
 \qtheorem{
 For any set function $F$, the mixing time of the Gibbs sampler is bounded by
-\vspace{-1em}
+\vspace{-0.5em}
 \begin{align*}
 t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp({\color{col1}2}\beta\zeta_{\color{col1}F})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
 \end{align*}
 
 \vspace{0.5em}
 If $F$ is submodular or supermodular the bound is improved to
+\vspace{-0.5em}
 \begin{align*}
 t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(\beta\zeta_{\color{col1}f})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
 \end{align*}
 }
+\end{frame}
+
+\begin{frame}{Polynomial-time Mixing}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee_superpixels.png}
+\column{0.5\textwidth}
+$F_i(S) = \phi\left(|S \cap V_i|\right)$
+
+\vspace{1em}
+$F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
+
+\vspace{3em}
+$\zeta_F \leq L \phi_{\textrm{max}}$
+
+\vspace{3em}
+\qbox{
+$|V_i| \approx 10^5\ $ vs. $\ L \approx 50$
+}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fast Mixing}
+Marginal gain
+\begin{align*}
+\Delta_F(v \mid S) \coloneqq F(S \cup \{v\}) - F(S)
+\end{align*}
+
+\vspace{1em}
+Influence of $r \in V$ on $v \in V$
+\begin{align*}
+\gamma_F(v; r \mid S) \coloneqq \big|\Delta_F(v \mid S) - \Delta_F(v \mid S \cup \{r\})\big|
+\end{align*}
+
+\vspace{1em}
+Maximum total influence :\hspace{0.5em} $\gamma_F$
+\end{frame}
+
+\begin{frame}{Fast Mixing}
+\only<1>{
+\qtheorem{
+For any set function $F$, if $\gamma_F < 1$, the mixing time of the Gibbs sampler is bounded by
+\vspace{-0.5em}
+\begin{align*}
+t_{\textrm{mix}}(\epsilon) \leq \frac{1}{1 - \gamma_F} n \left(\log n + \log \frac{1}{\epsilon}\right).
+\end{align*}
+}
+}
+\only<2>{
+\qtheorem{
+For any {\color{col1}submodular or supermodular} set function $F$, if $\gamma_{\color{col1}f} < 1$, the mixing time of the Gibbs sampler is bounded by
+\vspace{-0.5em}
+\begin{align*}
+t_{\textrm{mix}}(\epsilon) \leq \frac{1}{1 - \gamma_{\color{col1}f}} n \left(\log n + \log \frac{1}{\epsilon}\right).
+\end{align*}
+}
+}
+
+\vspace{1em}
+\begin{itemize}
+\item Closely related to Dobrushin uniqueness conditions, and influence matrix norms \qcite{Dyer et al., '09}
+\vspace{1em}
+\item Similar theorem by \qcite{Rebeschini and Karbasi, '15}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Fast Mixing}
+Decomposable functions
+\begin{align*}
+F(S) = \sum_{i = 1}^L F_i(S) \quad \longrightarrow \quad f(S) = \sum_{i = 1}^L f_i(S)
+\end{align*}
+
+Define
+\begin{align*}
+\theta_f \coloneqq \max_{v \in V} \sum_{i \in [L]} \sqrt{f_i(v)} \quad \textrm{and} \quad \lambda_f \coloneqq \max_{i \in [L]} \sum_{v \in V} \sqrt{f_i(v)}
+\end{align*}
+
+\qlemma{
+For any decomposable submodular function $F$,
+\vspace{-1em}
+\begin{align*}
+\gamma_f \leq \frac{\beta}{2}\theta_f \lambda_f.
+\end{align*}
+}
+
 \end{frame}
 
 \begin{frame}{Evaluation}
