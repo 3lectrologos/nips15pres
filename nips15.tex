@@ -273,7 +273,7 @@ $\downarrow$ & & $\downarrow$\\[0.5em]
 \end{tabular}
 
 \vspace{3em}
-Define Markov chain $\left(X_t\right)_t$ that moves according to $P$
+Define Markov chain $\left(X_t\right)_{t \geq 0}$ that moves according to $P$
 
 \vspace{2em}
 \begin{tabular}{*{2}{@{}l}}
@@ -363,7 +363,7 @@ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0
 }
 
 \uncover<4->{
-\qbox{How long does it take to get ``close enough" to $\pi$?}
+\qboxa{How long does it take to get ``close enough" to $\pi$?}
 }
 
 \uncover<5->{
@@ -375,13 +375,15 @@ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}
 }
 \end{frame}
 
-\begin{frame}{Mixing time}
-Mixing times for general PSMs are exponential in $|V|$
+\begin{frame}{Goal}
+\begin{itemize}
+\item Mixing times for general PSMs are exponential in $|V|$
 
 \vspace{1em}
-Exponential even for pairwise models \qcite{Jerrum and Sinclair, '93}
-
-\vspace{4em}
+\item Exponential even for pairwise models \qcite{Jerrum and Sinclair, '93}
+\end{itemize}
+\vspace{3em}
+\centering
 \qbox{\minibox{We establish sufficient conditions for sub-exponential mixing\\of the Gibbs sampler on PSMs.}}
 \end{frame}
 
