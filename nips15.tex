@@ -10,11 +10,25 @@
 \usepackage{mathtools}
 
 \newcommand{\qcite}[1]{{\scriptsize\color{col2}[#1]}}
+
 \newcommand{\qbox}[1]{%
 \begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=1pt,coltext=black,colframe=col1light,colback=col1,opacityback=0.7,opacityframe=1]
 \strut #1
 \end{tcolorbox}%
 }
+
+\newcommand{\qboxa}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=1pt,coltext=textcolor,colframe=col1,opacityback=0,opacityframe=1]
+\strut #1
+\end{tcolorbox}%
+}
+
+\newcommand{\qboxb}[1]{%
+\begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=1pt,coltext=textcolor,colframe=col2,opacityback=0,opacityframe=1]
+\strut #1
+\end{tcolorbox}%
+}
+
 \newcommand{\qtheorem}[1]{%
 \begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=0.7pt,coltext=textcolor,colframe=col2,colback=col1,opacityback=0,opacityframe=1]
 \begin{minipage}{\textwidth}
@@ -51,43 +65,189 @@
 \includepdf[pages={1}]{title.pdf}
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{figures/bg.png}}
 
+\begin{frame}{Foreground / Background Segmentation}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee.jpg}
+
+\column{0.5\textwidth}%
+\uncover<2->{
+\centering
+\includegraphics[width=1.85in]{figures/bee_truth.png}
+}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Foreground / Background Segmentation}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee.jpg}
+
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee_fbp1.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Foreground / Background Segmentation}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee.jpg}
+
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee_marginals.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Foreground / Background Segmentation}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee.jpg}
+
+\column{0.5\textwidth}
+\includegraphics[width=1.8in]{figures/grid.pdf}
+
+\vspace{1em}
+\begin{itemize}
+\item Set of all pixels: $V$
+\vspace{0.5em}
+\item Pairwise models (e.g., Ising)
+\vspace{-0.5em}
+\begin{align*}
+p(S) \propto \exp\left(\sum_{v \sim w} F_{v, w}(S) \right)
+\end{align*}
+\end{itemize}
+\end{columns}
+\end{frame}
+
 \begin{frame}{Higher-order Models}
 \vspace{0.5em}
 \begin{columns}[c]
 \column{0.5\textwidth}
 \centering
-\only<1>{\includegraphics[width=1.85in]{figures/bee.jpg}}
-\only<2-3,7>{\includegraphics[width=1.85in]{figures/bee_superpixels.png}}
-\only<4-6>{\includegraphics[width=1.85in]{figures/bee_superpixels_hl_v1.pdf}}
+\only<1-2,6>{\includegraphics[width=1.85in]{figures/bee_superpixels.png}}
+\only<3-5>{\includegraphics[width=1.85in]{figures/bee_superpixels_hl_v1.pdf}}
 \column{0.5\textwidth}
-\uncover<3->{
+\uncover<2->{
 $V = V_1 \cup V_2 \cup \cdots \cup V_L$
 }
 
-\uncover<5->{
+\uncover<4->{
 \vspace{1em}
 $F_i(S) = \phi\left(|S \cap V_i|\right)$
 }
 
-\uncover<6->{
+\uncover<5->{
 \vspace{1.3em}
-\hspace{-1.5em}\includegraphics[width=2.15in]{figures/convex_over_modular.pdf}
+\hspace{-1.5em}\includegraphics[width=2.1in]{figures/convex_over_modular.pdf}
 }
 
-\uncover<7->{
-\vspace{0.5em}
-$F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
+\uncover<6->{
+\vspace{1em}
+$p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 }
-
-%\uncover<7->{
-%\vspace{1em}
-%$|V_i| \approx 10^5$\\[0.5em]
-%}
-%\uncover<8->{
-%$L \approx 50$
-%}
 \end{columns}
 \end{frame}
+
+\begin{frame}{Image Collection Summarization}
+\centering
+\includegraphics[width=4.2in]{figures/flickr_probs_0.png}
+\end{frame}
+
+\begin{frame}{Submodularity}
+\vspace{0.5em}
+\begin{itemize}
+\item<1-> Want to encourage diversity
+\vspace{1em}
+\item<2-> Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
+\vspace{1em}
+\item<3-> Submodular set function $F : 2^V \to \mathbb{R}$
+\end{itemize}
+
+\vspace{1em}
+\centering
+\uncover<4>{\includegraphics[width=2.8in]{figures/submod_1.pdf}}
+\end{frame}
+
+\begin{frame}{Submodularity}
+\vspace{0.5em}
+\begin{itemize}
+\item Want to encourage diversity
+\vspace{1em}
+\item Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
+\vspace{1em}
+\item Submodular set function $F : 2^V \to \mathbb{R}$
+\end{itemize}
+
+\vspace{1em}
+\centering
+\includegraphics[width=2.8in]{figures/submod_2.pdf}
+\end{frame}
+
+\begin{frame}{Submodularity}
+\vspace{0.5em}
+\begin{itemize}
+\item Want to encourage diversity
+\vspace{1em}
+\item Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
+\vspace{1em}
+\item Submodular set function $F : 2^V \to \mathbb{R}$
+\end{itemize}
+
+\vspace{1em}
+\centering
+\includegraphics[width=2.8in]{figures/submod_3.pdf}
+\end{frame}
+
+\begin{frame}{Submodularity}
+\vspace{0.5em}
+\begin{tabular}{c*{2}{@{\hspace{3em}}c}}
+$F$ is submodular & $\Longleftrightarrow$ & $-F$ is supermodular\\[0.5em]
+$\downarrow$ & & $\downarrow$\\[0.5em]
+\qboxa{coverage / diversity} & & \qboxb{smoothness / cooperation}
+\end{tabular}
+
+\vspace{3em}
+\centering
+\qbox{
+\minibox{Large amount of work on submodular optimization,\\but very little on probabilistic models.}
+}
+\end{frame}
+
+\begin{frame}{Interactive Summarization}
+\centering
+\includegraphics[width=4.2in]{figures/flickr_probs_1_1.png}
+\end{frame}
+
+\begin{frame}{Interactive Summarization}
+\centering
+\includegraphics[width=4.2in]{figures/flickr_probs_1_2.png}
+\end{frame}
+
+\begin{frame}{Interactive Summarization}
+\centering
+\includegraphics[width=4.2in]{figures/flickr_probs_2_1.png}
+\end{frame}
+
+\begin{frame}{Interactive Summarization}
+\centering
+\includegraphics[width=4.2in]{figures/flickr_probs_2_2.png}
+\end{frame}
+
+\begin{frame}{Probabilistic Submodular Models}
+
+\end{frame}
+
+\input{venn}
 
 \begin{frame}{Markov Chain Monte Carlo}
 \begin{tabular}{*{2}{@{}l}}

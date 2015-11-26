@@ -1,0 +1,77 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+\setsansfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  scale=3.5,
+  >=latex,
+  line join=bevel,
+  NN/.style={draw=textcolor,fill=textcolor,text=black,fill opacity=0.7,circle,line width=0.3em,minimum size=3.5em},
+  NS/.style={draw=col1,fill=textcolor,text=black,fill opacity=0.7,circle,line width=0.3em,minimum size=3.5em},
+  LL/.style={draw=textcolor,line width=0.2em},
+  LS/.style={draw=col1,line width=0.2em},
+  LT/.style={midway,text=col1,font=\scriptsize},
+  EE/.style={circle,minimum size=4em,text=textcolor,font=\LARGE},
+  LD/.style={draw=gray!90!black,line width=0.15em,dotted}
+  ]
+  \node[NN] (A1) at (0,0) {};
+  \node[NN] (B1) at (20bp,0) {};
+  \node[NN] (C1) at (40bp,0) {};
+  \node[EE] (D1) at (60bp,0) {\ldots};
+  \node[NN] (E1) at (80bp,0) {};
+  \node[NN] (A2) at (0,-20bp) {};
+  \node[NN] (B2) at (20bp,-20bp) {};
+  \node[NN] (C2) at (40bp,-20bp) {};
+  \node[EE] (D2) at (60bp,-20bp) {\ldots};
+  \node[NN] (E2) at (80bp,-20bp) {};
+  \node[EE] (A3) at (0,-40bp) {\vdots};
+  \node[EE] (B3) at (20bp,-40bp) {\vdots};
+  \node[EE] (C3) at (40bp,-40bp) {\vdots};
+  \node[EE] (D3) at (60bp,-40bp) {$\ddots$};
+  \node[EE] (E3) at (80bp,-40bp) {\vdots};
+  \node[NN] (A4) at (0,-60bp) {};
+  \node[NN] (B4) at (20bp,-60bp) {};
+  \node[NN] (C4) at (40bp,-60bp) {};
+  \node[EE] (D4) at (60bp,-60bp) {\ldots};
+  \node[NN] (E4) at (80bp,-60bp) {};
+  \draw [LL] (A1) -- (B1);
+  \draw [LL] (B1) -- (C1);
+  \draw [LL] (C1) -- (D1);
+  \draw [LL] (D1) -- (E1);
+  \draw [LL] (A2) -- (B2);
+  \draw [LL] (B2) -- (C2);
+  \draw [LL] (C2) -- (D2);
+  \draw [LL] (D2) -- (E2);
+  \draw [LL] (A4) -- (B4);
+  \draw [LL] (B4) -- (C4);
+  \draw [LL] (C4) -- (D4);
+  \draw [LL] (D4) -- (E4);
+
+  \draw [LL] (A1) -- (A2);
+  \draw [LL] (A2) -- (A3);
+  \draw [LL] (A3) -- (A4);
+  \draw [LL] (B1) -- (B2);
+  \draw [LL] (B2) -- (B3);
+  \draw [LL] (B3) -- (B4);
+  \draw [LL] (C1) -- (C2);
+  \draw [LL] (C2) -- (C3);
+  \draw [LL] (C3) -- (C4);
+  \draw [LL] (E1) -- (E2);
+  \draw [LL] (E2) -- (E3);
+  \draw [LL] (E3) -- (E4);
+\end{tikzpicture}
+
+\end{document}
