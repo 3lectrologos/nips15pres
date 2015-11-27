@@ -253,10 +253,70 @@ $\downarrow$ & & $\downarrow$\\[0.5em]
 \includegraphics[width=4.2in]{figures/psm.pdf}
 
 \vspace{0.5em}
-\qboxa{$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$} $F$ is a submodular or supermodular function
+\qboxa{$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$} $F : 2^V \to \mathbb{R}$ is a submodular or supermodular function
 \end{frame}
 
 \input{venn}
+
+\begin{frame}{Inference}
+\begin{itemize}
+\item Compute conditionals $\ p(A \subseteq S \subseteq B \mid C \subseteq S \subseteq D)$
+\vspace{1em}
+\item Compute the partition function $Z$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Inference}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.3\textwidth}
+\begin{minipage}[t][1.7em]{\textwidth}
+\centering
+Exact inference
+\end{minipage}
+
+\centering
+\includegraphics[width=1.4in]{figures/inf01_exact.pdf}
+
+\vspace{1em}
+\begin{itemize}
+\item \small{Tractable only for specific subclasses}
+\vspace{1em}
+\item \#P-hard even for Ising models
+\end{itemize}
+
+\column{0.3\textwidth}
+\begin{minipage}[t][1.7em]{\textwidth}
+\centering
+BP, Mean-field, \ldots
+\end{minipage}
+
+\centering
+\includegraphics[width=1.4in]{figures/inf02_loworder.pdf}
+
+\vspace{1em}
+\begin{itemize}
+\item \small{Extensively studied problem}
+\vspace{1em}
+\item \small{Exponential in clique size}
+\end{itemize}
+
+\column{0.3\textwidth}
+\begin{minipage}[t][1.7em]{\textwidth}
+\centering
+L-\textsc{Field}
+\end{minipage}
+
+\centering
+\includegraphics[width=1.4in]{figures/inf03_psm.pdf}
+
+\vspace{1em}
+\begin{itemize}
+\item \small{Variational approach for general PSMs} \qcite{Djolonga and Krause, '14}
+\vspace{1.2em}
+\end{itemize}
+\end{columns}
+\end{frame}
 
 \begin{frame}{Markov Chain Monte Carlo}
 \begin{tabular}{*{2}{@{}l}}
