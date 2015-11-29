@@ -5,6 +5,7 @@
 %-----------------------------------------------------------------------
 \usepackage{pdfpages}
 \usepackage{array}
+\usepackage{booktabs}
 \usepackage[skins,breakable]{tcolorbox}
 \usepackage{minibox}
 \usepackage{mathtools}
@@ -272,6 +273,78 @@ $F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
 
 \vspace{0.5em}
 \qboxa{$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$} $F : 2^V \to \mathbb{R}$ is a submodular or supermodular function
+\end{frame}
+
+\begin{frame}{Probabilistic Submodular Models}
+\vspace{0.5em}
+\centering
+\includegraphics[width=4.2in]{figures/psm.pdf}
+
+\vspace{0.5em}
+\qboxa{$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$} $F : 2^V \to \mathbb{R}$ is a submodular or supermodular function
+\end{frame}
+
+\begin{frame}{Probabilistic Submodular Models}
+\vspace{1em}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{>{\arraybackslash}p{0.47\textwidth}>{\arraybackslash}p{0.45\textwidth}}
+\centering\arraybackslash {\large Prob. Submodular Models} & \centering\arraybackslash {\large \minibox{Markov Random Fields\\[0.2em]}}\\ \toprule
+
+\begin{minipage}[t]{\textwidth}
+\begin{itemize}
+\item Ground set $V$ with $|V| = n$
+\end{itemize}
+\end{minipage}
+&
+\begin{minipage}[t]{\textwidth}
+\begin{itemize}
+\item Binary random vector
+
+\vspace{0.7em}
+\hspace{1em}$\mathcal{X} = (X_1, \ldots, X_n)$
+
+\vspace{0.5em}
+\end{itemize}
+\end{minipage}\\
+
+\begin{minipage}[t]{\textwidth}
+\begin{itemize}
+\item $F : 2^V \to \mathbb{R}$
+\end{itemize}
+\end{minipage}
+&
+\begin{minipage}[t]{\textwidth}
+\begin{itemize}
+\item Set of factors $\phi_i : \mathcal{X}_i \to \mathbb{R}$
+
+\vspace{0.7em}
+\end{itemize}
+\end{minipage}\\
+
+\begin{minipage}[t]{\textwidth}
+\begin{itemize}
+\item Distribution over subsets
+
+\vspace{1em}
+$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$
+\end{itemize}
+\end{minipage}
+&
+\begin{minipage}[t]{\textwidth}
+\begin{itemize}
+\item Distribution over binary vectors
+
+\vspace{0.3em}
+$p(X) = \displaystyle\frac{1}{Z} \exp\left(\sum_i \phi_i(X_i)\right)$
+\end{itemize}
+
+\vspace{0.5em}
+\end{minipage}\\ \midrule
+\end{tabular}
+
+\vspace{0.2em}
+\centering
+\qboxa{Model order: $\max_i |\mathcal{X}_i|$}
 \end{frame}
 
 \input{venn}
