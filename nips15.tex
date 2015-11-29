@@ -350,11 +350,25 @@ $p(X) = \displaystyle\frac{1}{Z} \exp\left(\sum_i \phi_i(X_i)\right)$
 \input{venn}
 
 \begin{frame}{Inference}
-\begin{itemize}
-\item Compute conditionals $\ p(A \subseteq S \subseteq B \mid C \subseteq S \subseteq D)$
 \vspace{1em}
-\item Compute the partition function $Z$
-\end{itemize}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+$\mathbb{P}(\textrm{pixel label} \mid \textrm{annotated pixels})$
+
+\vspace{0.7em}
+\centering
+\includegraphics[width=1.75in]{figures/bee_marginals.png}
+
+\column{0.5\textwidth}
+\centering
+$\mathbb{P}(\textrm{image} \in \textrm{summary} \mid \textrm{selected})$
+
+\vspace{0.7em}
+\centering
+\includegraphics[width=1.75in]{figures/flickr_probs_1_1_portrait.png}
+\vspace{2.85em}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Inference}
@@ -389,7 +403,7 @@ BP, Mean-field, \ldots
 \begin{itemize}
 \item \small{Extensively studied problem}
 \vspace{1em}
-\item \small{Exponential in clique size}
+\item \small{Exponential in model order}
 \end{itemize}
 
 \column{0.3\textwidth}
