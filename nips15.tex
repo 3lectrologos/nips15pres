@@ -59,99 +59,6 @@
 \includepdf[pages={1}]{title.pdf}
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{figures/bg.png}}
 
-\begin{frame}{Foreground / Background Segmentation}
-\vspace{0.5em}
-\begin{columns}[c]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.85in]{figures/bee.jpg}
-
-\column{0.5\textwidth}%
-\uncover<2->{
-\centering
-\includegraphics[width=1.85in]{figures/bee_truth.png}
-}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Foreground / Background Segmentation}
-\vspace{0.5em}
-\begin{columns}[c]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.85in]{figures/bee.jpg}
-
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.85in]{figures/bee_fbp1.png}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Foreground / Background Segmentation}
-\vspace{0.5em}
-\begin{columns}[c]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.85in]{figures/bee.jpg}
-
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.85in]{figures/bee_marginals.png}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Foreground / Background Segmentation}
-\vspace{0.5em}
-\begin{columns}[c]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.85in]{figures/bee.jpg}
-
-\column{0.5\textwidth}
-\includegraphics[width=1.8in]{figures/grid.pdf}
-
-\vspace{1em}
-\begin{itemize}
-\item Set of all pixels: $V$
-\vspace{0.5em}
-\item Pairwise models (e.g., Ising)
-\vspace{-0.5em}
-\begin{align*}
-p(S) \propto \exp\left(\sum_{v \sim w} F_{v, w}(S) \right)
-\end{align*}
-\end{itemize}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Higher-order Models}
-\vspace{0.5em}
-\begin{columns}[c]
-\column{0.5\textwidth}
-\centering
-\only<1-2,6>{\includegraphics[width=1.85in]{figures/bee_superpixels.png}}
-\only<3-5>{\includegraphics[width=1.85in]{figures/bee_superpixels_hl_v1.pdf}}
-\column{0.5\textwidth}
-\uncover<2->{
-$V = V_1 \cup V_2 \cup \cdots \cup V_L$
-}
-
-\uncover<4->{
-\vspace{1em}
-$F_i(S) = \phi\left(|S \cap V_i|\right)$
-}
-
-\uncover<5->{
-\vspace{1.3em}
-\hspace{-1.5em}\includegraphics[width=2.1in]{figures/convex_over_modular.pdf}
-}
-
-\uncover<6->{
-\vspace{1em}
-$p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
-}
-\end{columns}
-\end{frame}
-
 \begin{frame}{Image Collection Summarization}
 \vspace{0.5em}
 \centering
@@ -161,46 +68,52 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 \begin{frame}{Submodularity}
 \vspace{0.5em}
 \begin{itemize}
-\item<1-> Want to encourage diversity
-\vspace{1em}
-\item<2-> Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
-\vspace{1em}
-\item<3-> Submodular set function $F : 2^V \to \mathbb{R}$
+\item<1-> Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
+\vspace{0.5em}
+\item<2-> Encourage coverage and diversity of the summary
+\vspace{0.5em}
+\item<3-> Set of all images $V$
+\vspace{0.5em}
+\item<4-> For any summary $S \subseteq V\ \ \longrightarrow\ \ F(S) \in \mathbb{R}$
 \end{itemize}
 
-\vspace{1em}
+\vspace{0.5em}
 \centering
-\uncover<4>{\includegraphics[width=2.8in]{figures/submod_1.pdf}}
+\uncover<5->{\includegraphics[width=2.75in]{figures/submod_1.pdf}}
 \end{frame}
 
 \begin{frame}{Submodularity}
 \vspace{0.5em}
 \begin{itemize}
-\item Want to encourage diversity
-\vspace{1em}
 \item Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
-\vspace{1em}
-\item Submodular set function $F : 2^V \to \mathbb{R}$
+\vspace{0.5em}
+\item Encourage coverage and diversity of the summary
+\vspace{0.5em}
+\item Set of all images $V$
+\vspace{0.5em}
+\item For any summary $S \subseteq V\ \ \longrightarrow\ \ F(S) \in \mathbb{R}$
 \end{itemize}
 
-\vspace{1em}
+\vspace{0.5em}
 \centering
-\includegraphics[width=2.8in]{figures/submod_2.pdf}
+\includegraphics[width=2.75in]{figures/submod_2.pdf}
 \end{frame}
 
 \begin{frame}{Submodularity}
 \vspace{0.5em}
 \begin{itemize}
-\item Want to encourage diversity
-\vspace{1em}
 \item Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
-\vspace{1em}
-\item Submodular set function $F : 2^V \to \mathbb{R}$
+\vspace{0.5em}
+\item Encourage coverage and diversity of the summary
+\vspace{0.5em}
+\item Set of all images $V$
+\vspace{0.5em}
+\item For any summary $S \subseteq V\ \ \longrightarrow\ \ F(S) \in \mathbb{R}$
 \end{itemize}
 
-\vspace{1em}
+\vspace{0.5em}
 \centering
-\includegraphics[width=2.8in]{figures/submod_3.pdf}
+\includegraphics[width=2.75in]{figures/submod_3.pdf}
 \end{frame}
 
 \begin{frame}{Submodularity}
@@ -245,6 +158,111 @@ $\downarrow$ & & $\downarrow$\\[0.5em]
 \vspace{0.5em}
 \centering
 \includegraphics[width=4.2in]{figures/flickr_probs_2_2.png}
+\end{frame}
+
+\begin{frame}{Foreground / Background Segmentation}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee.jpg}
+
+\column{0.5\textwidth}
+\uncover<2->{
+\centering
+\includegraphics[width=1.85in]{figures/bee_truth.png}
+}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Foreground / Background Segmentation}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee.jpg}
+
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee_fbp1.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Foreground / Background Segmentation}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee.jpg}
+
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee_dr1.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Pairwise Models}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee.jpg}
+
+\column{0.5\textwidth}
+\includegraphics[width=1.7in]{figures/grid.pdf}
+
+\vspace{1em}
+\begin{itemize}
+\item Set of all pixels $V$
+\vspace{1em}
+\item For $S \subseteq V$ of foreground pixels,
+\begin{align*}
+F(S) = \sum_{v \sim w} F_{v, w}(S)
+\end{align*}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Higher-order Models}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\only<1-2,6>{\includegraphics[width=1.85in]{figures/bee_superpixels.png}}
+\only<3-5>{\includegraphics[width=1.85in]{figures/bee_superpixels_hl_v1.pdf}}
+\column{0.5\textwidth}
+\uncover<2->{
+$V = V_1 \cup V_2 \cup \cdots \cup V_L$
+}
+
+\uncover<4->{
+\vspace{1em}
+$F_i(S) = \phi\left(|S \cap V_i|\right)$
+}
+
+\uncover<5->{
+\vspace{1.3em}
+\hspace{-1.5em}\includegraphics[width=2.1in]{figures/convex_over_modular.pdf}
+}
+
+\uncover<6->{
+\vspace{1em}
+$F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
+}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Higher-order Models \qcite{Djolonga and Krause, '15}}
+\vspace{0.5em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee_dr1.png}
+
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=1.85in]{figures/bee_marginals.png}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Probabilistic Submodular Models}
