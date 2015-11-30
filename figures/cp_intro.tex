@@ -1,0 +1,83 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+\setsansfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  xscale=1.7,
+  yscale=1.5,
+  >=latex,
+  line join=bevel,
+  NN/.style={draw=textcolor,fill=textcolor,text=black,fill opacity=0.7,circle,line width=0.3em,minimum size=3.5em},
+  NS/.style={draw=col1,fill=textcolor,text=black,fill opacity=0.7,circle,line width=0.3em,minimum size=3.5em},
+  LL/.style={draw=textcolor,line width=0.2em},
+  LS/.style={draw=col1,line width=0.2em},
+  LT/.style={midway,text=col1,font=\scriptsize}
+  ]
+  \node[NN] (S0) at (0,0) {$\{\}$};
+  \node[NN] (S1) at (-75bp,50bp) {$1$};
+  \node[NN] (S2) at (-25bp,50bp) {$2$};
+  \node[NN] (S3) at (25bp,50bp) {$3$};
+  \node[NN] (S4) at (75bp,50bp) {$4$};
+  \node[NN] (S12) at (-125bp,100bp) {$12$};
+  \node[NN] (S13) at (-75bp,100bp) {$13$};
+  \node[NN] (S14) at (-25bp,100bp) {$14$};
+  \node[NN] (S23) at (25bp,100bp) {$23$};
+  \node[NN] (S24) at (75bp,100bp) {$24$};
+  \node[NN] (S34) at (125bp,100bp) {$34$};
+  \node[NN] (S123) at (-75bp,150bp) {$123$};
+  \node[NN] (S124) at (-25bp,150bp) {$124$};
+  \node[NN] (S134) at (25bp,150bp) {$134$};
+  \node[NN] (S234) at (75bp,150bp) {$234$};
+  \node[NN] (S1234) at (0,200bp) {$V$};
+
+  \draw [LL,] (S0) -- (S1);
+  \draw [LL] (S0) -- (S2);
+  \draw [LL] (S0) -- (S3);
+  \draw [LL] (S0) -- (S4);
+  
+  \draw [LL] (S1) -- (S12);
+  \draw [LL] (S1) -- (S13);
+  \draw [LL] (S1) -- (S14);
+  \draw [LL] (S2) -- (S12);
+  \draw [LL] (S2) -- (S23);
+  \draw [LL] (S2) -- (S24);
+  \draw [LL] (S3) -- (S13);
+  \draw [LL] (S3) -- (S23);
+  \draw [LL] (S3) -- (S34);
+  \draw [LL] (S4) -- (S14);
+  \draw [LL] (S4) -- (S24);
+  \draw [LL] (S4) -- (S34);
+  
+  \draw [LL] (S12) -- (S123);
+  \draw [LL] (S12) -- (S124);
+  \draw [LL] (S13) -- (S123);
+  \draw [LL] (S13) -- (S134);
+  \draw [LL] (S14) -- (S124);
+  \draw [LL] (S14) -- (S134);
+  \draw [LL] (S23) -- (S123);
+  \draw [LL] (S23) -- (S234);
+  \draw [LL] (S24) -- (S124);
+  \draw [LL] (S24) -- (S234);
+  \draw [LL] (S34) -- (S134);
+  \draw [LL] (S34) -- (S234);
+  
+  \draw [LL] (S123) -- (S1234);
+  \draw [LL] (S124) -- (S1234);
+  \draw [LL] (S134) -- (S1234);
+  \draw [LL] (S234) -- (S1234);
+\end{tikzpicture}
+
+\end{document}

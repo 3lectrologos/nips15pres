@@ -230,7 +230,7 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 \qboxa{$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$} $F : 2^V \to \mathbb{R}$ is a submodular or supermodular function
 \end{frame}
 
-\begin{frame}{Probabilistic Submodular Models}
+\begin{frame}{Probabilistic Submodular Models \todo{}}
 \vspace{1em}
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{>{\arraybackslash}p{0.47\textwidth}>{\arraybackslash}p{0.45\textwidth}}
@@ -533,6 +533,29 @@ Easy to show that
 $|V_i| \approx 10^5\ $ vs. $\ L \approx 50$
 }
 \end{columns}
+\end{frame}
+
+\begin{frame}{Proof Outline}
+\vspace{1em}
+\only<1>{Method of canonical paths \qcite{Sinclair, '92}}%
+\only<2>{For each $A, B \subseteq V$, need to route $p(A)p(B)$ amount of flow}%
+\only<3-7>{Construct a ``canonical path'' between each $A, B \subseteq V$}%
+\only<8>{Capacity of an edge $\ \sim\ $ transition probability of Gibbs sampler}%
+\only<9>{Congestion of an edge $\ \sim\ $ (total flow through edge) / capacity}%
+\only<10>{$t_{\mathrm{mix}}(\epsilon) = \mathcal{O}\left(\max\{\textrm{congestion}\}\log \epsilon^{-1}\right)$ \qcite{Sinclair, '92}}%
+\only<11-12>{We bound the maximum congestion of a PSM using $\zeta_f$}
+
+\vspace{1em}
+\centering
+\only<1>{\includegraphics[width=3.6in]{figures/cp_intro.pdf}}%
+\only<2>{\includegraphics[width=3.6in]{figures/cp_easy_nodes_only.pdf}}%
+\only<3>{\includegraphics[width=3.6in]{figures/cp_easy_path_0.pdf}}%
+\only<4>{\includegraphics[width=3.6in]{figures/cp_easy_path_1.pdf}}%
+\only<5>{\includegraphics[width=3.6in]{figures/cp_easy_path_2.pdf}}%
+\only<6>{\includegraphics[width=3.6in]{figures/cp_easy_path_3.pdf}}%
+\only<7>{\includegraphics[width=3.6in]{figures/cp_easy_path_4.pdf}}%
+\only<8-11>{\includegraphics[width=3.6in]{figures/cp_easy.pdf}}%
+\only<12>{\includegraphics[width=3.6in]{figures/cp_hard.pdf}}
 \end{frame}
 
 \begin{frame}{Fast Mixing}
