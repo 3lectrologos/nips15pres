@@ -496,50 +496,14 @@ Mixing time $\ \ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \ep
 \end{frame}
 
 \begin{frame}{Polynomial-time Mixing}
-\qtheorem{
-For any set function $F$, the mixing time of the Gibbs sampler is bounded by
-\vspace{-0.5em}
-\begin{align*}
-t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
-\end{align*}
-}
-\end{frame}
-
-\begin{frame}{Polynomial-time Mixing}
-\vspace{0.5em}
 \includegraphics[width=3.9in]{figures/decomp.pdf}
 \end{frame}
 
 \begin{frame}{Polynomial-time Mixing}
 \qtheorem{
-For any set function $F$, the mixing time of the Gibbs sampler is bounded by
-\vspace{-0.5em}
+For any submodular or supermodular set function $F$, the mixing time of the Gibbs sampler is bounded by
 \begin{align*}
-t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(2\beta\zeta_F)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
-\end{align*}
-
-\vspace{0.5em}
-If $F$ is submodular or supermodular the bound is improved to
-\vspace{-0.5em}
-\begin{align*}
-t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(\beta\zeta_f)\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
-\end{align*}
-}
-\end{frame}
-
-\begin{frame}{Polynomial-time Mixing}
-\qtheorem{
-For any set function $F$, the mixing time of the Gibbs sampler is bounded by
-\vspace{-0.5em}
-\begin{align*}
-t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp({\color{col1}2}\beta\zeta_{\color{col1}F})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
-\end{align*}
-
-\vspace{0.5em}
-If $F$ is submodular or supermodular the bound is improved to
-\vspace{-0.5em}
-\begin{align*}
-t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(\beta\zeta_{\color{col1}f})\log\left(\displaystyle\frac{1}{\epsilon p_{\textrm{min}}}\right).
+t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_f)\log\epsilon^{-1}\right).
 \end{align*}
 }
 \end{frame}
@@ -557,10 +521,12 @@ $F_i(S) = \phi\left(|S \cap V_i|\right)$
 $F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
 
 \vspace{3em}
-$\zeta_F \leq L \phi_{\textrm{max}}$
+Easy to show that
+
+\vspace{0.5em}
+\hspace{2em}$\zeta_f \leq L \phi_{\textrm{max}}$
 
 \vspace{3em}
-\centering
 \qboxa{
 $|V_i| \approx 10^5\ $ vs. $\ L \approx 50$
 }
