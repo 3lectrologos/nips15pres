@@ -10,6 +10,14 @@
 \usepackage{minibox}
 \usepackage{mathtools}
 
+% Avoid random transparencies in Adobe Acrobat
+\usepackage{everypage}
+\AddEverypageHook{%
+  \makeatletter%
+  \special{pdf: put @thispage <</Group << /S /Transparency /I true /CS /DeviceRGB>> >>}%
+  \makeatother%
+}%
+
 \newcommand{\qcite}[1]{{\scriptsize\color{col2}[#1]}}
 
 \newcommand{\qbox}[1]{%
@@ -140,25 +148,10 @@ $\downarrow$ & & $\downarrow$\\[0.5em]
 \begin{frame}{Interactive Summarization}
 \vspace{0.5em}
 \centering
-\includegraphics[width=4.2in]{figures/flickr_probs_1_1.png}
-\end{frame}
-
-\begin{frame}{Interactive Summarization}
-\vspace{0.5em}
-\centering
-\includegraphics[width=4.2in]{figures/flickr_probs_1_2.png}
-\end{frame}
-
-\begin{frame}{Interactive Summarization}
-\vspace{0.5em}
-\centering
-\includegraphics[width=4.2in]{figures/flickr_probs_2_1.png}
-\end{frame}
-
-\begin{frame}{Interactive Summarization}
-\vspace{0.5em}
-\centering
-\includegraphics[width=4.2in]{figures/flickr_probs_2_2.png}
+\only<1>{\includegraphics[width=4.2in]{figures/flickr_probs_1_1.png}}%
+\only<2>{\includegraphics[width=4.2in]{figures/flickr_probs_1_2.png}}%
+\only<3>{\includegraphics[width=4.2in]{figures/flickr_probs_2_1.png}}%
+\only<4>{\includegraphics[width=4.2in]{figures/flickr_probs_2_2.png}}
 \end{frame}
 
 \begin{frame}{Foreground / Background Segmentation}
@@ -166,38 +159,14 @@ $\downarrow$ & & $\downarrow$\\[0.5em]
 \begin{columns}[c]
 \column{0.5\textwidth}
 \centering
-\includegraphics[width=1.85in]{figures/bee.jpg}
-
-\column{0.5\textwidth}
-\uncover<2->{
-\centering
-\includegraphics[width=1.85in]{figures/bee_truth.png}
-}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Foreground / Background Segmentation}
-\vspace{0.5em}
-\begin{columns}[c]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.85in]{figures/bee.jpg}
+\includegraphics[width=1.8in]{figures/bee.jpg}
 
 \column{0.5\textwidth}
 \centering
-\includegraphics[width=1.85in]{figures/bee_dr1.png}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Pairwise Models}
-\vspace{0.5em}
-\begin{columns}[c]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=1.85in]{figures/bee.jpg}
-
-\column{0.5\textwidth}
-\includegraphics[width=1.7in]{figures/grid.pdf}
+\only<2>{\includegraphics[width=1.8in]{figures/bee_truth.png}}%
+\only<3>{\includegraphics[width=1.8in]{figures/bee_dr1.png}}%
+\only<4>{
+\includegraphics[width=1.6in]{figures/grid.pdf}
 
 \vspace{1em}
 \begin{itemize}
@@ -205,9 +174,10 @@ $\downarrow$ & & $\downarrow$\\[0.5em]
 \vspace{1em}
 \item For $S \subseteq V$ of foreground pixels,
 \begin{align*}
-F(S) = \sum_{v \sim w} F_{v, w}(S)
+p(S) \propto \exp\left(\sum_{v \sim w} F_{v, w}(S)\right)
 \end{align*}
 \end{itemize}
+}
 \end{columns}
 \end{frame}
 
@@ -216,8 +186,8 @@ F(S) = \sum_{v \sim w} F_{v, w}(S)
 \begin{columns}[c]
 \column{0.5\textwidth}
 \centering
-\only<1-2,6>{\includegraphics[width=1.85in]{figures/bee_superpixels.png}}
-\only<3-5>{\includegraphics[width=1.85in]{figures/bee_superpixels_hl_v1.pdf}}
+\only<1-2,6>{\includegraphics[width=1.8in]{figures/bee_superpixels.png}}%
+\only<3-5>{\includegraphics[width=1.8in]{figures/bee_superpixels_hl_v1.pdf}}
 \column{0.5\textwidth}
 \uncover<2->{
 $V = V_1 \cup V_2 \cup \cdots \cup V_L$
@@ -235,7 +205,7 @@ $F_i(S) = \phi\left(|S \cap V_i|\right)$
 
 \uncover<6->{
 \vspace{1em}
-$F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
+$p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 }
 \end{columns}
 \end{frame}
@@ -245,21 +215,12 @@ $F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
 \begin{columns}[c]
 \column{0.5\textwidth}
 \centering
-\includegraphics[width=1.85in]{figures/bee_dr1.png}
+\includegraphics[width=1.8in]{figures/bee_dr1.png}
 
 \column{0.5\textwidth}
 \centering
-\includegraphics[width=1.85in]{figures/bee_marginals.png}
+\includegraphics[width=1.8in]{figures/bee_marginals.png}
 \end{columns}
-\end{frame}
-
-\begin{frame}{Probabilistic Submodular Models}
-\vspace{0.5em}
-\centering
-\includegraphics[width=4.2in]{figures/psm.pdf}
-
-\vspace{0.5em}
-\qboxa{$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$} $F : 2^V \to \mathbb{R}$ is a submodular or supermodular function
 \end{frame}
 
 \begin{frame}{Probabilistic Submodular Models}
@@ -341,7 +302,7 @@ $p(X) = \displaystyle\frac{1}{Z} \exp\left(\sum_i \phi_i(X_i)\right)$
 \begin{columns}[c]
 \column{0.5\textwidth}
 \centering
-$\mathbb{P}(\textrm{pixel label} \mid \textrm{annotated pixels})$
+$\mathbb{P}(\textrm{pixel label})$
 
 \vspace{0.7em}
 \centering
@@ -425,7 +386,7 @@ L-\textsc{Field}
 \end{tabular}
 
 \vspace{3em}
-Define Markov chain $\left(X_t\right)_{t \geq 0}$ that moves according to $P$
+Define Markov chain $\left(S_t\right)_{t \geq 0}$ that moves according to $P$
 
 \vspace{2em}
 \begin{tabular}{*{2}{@{}l}}
@@ -437,93 +398,82 @@ Define Markov chain $\left(X_t\right)_{t \geq 0}$ that moves according to $P$
 \end{tabular}
 \end{frame}
 
-\begin{frame}{Markov Chain Monte Carlo}
-\vspace{0.5em}
-\centering
-\includegraphics[height=3in]{figures/lattice_nodes_only.pdf}
-\end{frame}
-
-\begin{frame}{Markov Chain Monte Carlo}
-\vspace{0.5em}
-\centering
-\includegraphics[height=3in]{figures/lattice_example_node.pdf}
-\end{frame}
-
-\begin{frame}{Markov Chain Monte Carlo}
-\vspace{0.5em}
-\centering
-\includegraphics[height=3in]{figures/lattice_example_edges.pdf}
-\end{frame}
-
-\begin{frame}{Markov Chain Monte Carlo}
-\vspace{0.5em}
-\centering
-\includegraphics[height=3in]{figures/lattice_full.pdf}
-\end{frame}
-
-\begin{frame}{Markov Chain Monte Carlo}
-\vspace{0.5em}
-\centering
-\includegraphics[height=3in]{figures/lattice_full_binary.pdf}
-\end{frame}
-
-\begin{frame}{Gibbs Sampler for PSMs}
+\begin{frame}{State Space of $V = \{1, 2, 3\}$}
 \vspace{1em}
-Start at $X_0$
+\centering
+\includegraphics[height=2.7in]{figures/lattice_nodes_only.pdf}
+\end{frame}
+
+\begin{frame}{Gibbs Sampler}
+\vspace{1em}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\uncover<2->{Start at $S_0$
 
 \vspace{1.1em}
-For $t = 1, 2, \ldots$
+For $t = 1, 2, \ldots$}
 \vspace{1.1em}
 \begin{itemize}
-\item Select random $v \in V$
+\item<4-> Select random $v \in V$
 \vspace{1.1em}
-\item $\Delta \leftarrow F(X_t \cup \{v\}) - F(X_t \setminus \{v\})$
+\item<7-> Compute conditional $p_{\textrm{add}}$
 \vspace{1.1em}
-\item $p_{\textrm{add}} \leftarrow e^{\beta \Delta} / \left(1 + e^{\beta \Delta}\right)$
-\vspace{1.1em}
-\item Flip biased coin
+\item<8-> Flip biased coin
 
 \vspace{-1em}
-\begin{minipage}{0.5\textwidth}\vspace{2em}\includegraphics[width=2.7in]{figures/gibbs.pdf}\end{minipage}
+\begin{minipage}{0.5\textwidth}\vspace{2em}\includegraphics[width=2.5in]{figures/gibbs.pdf}\end{minipage}
 \end{itemize}
+\column{0.5\textwidth}
+\only<1-2>{\includegraphics[height=2.5in]{figures/lattice_nodes_only_large.pdf}}%
+\only<3-4>{\includegraphics[height=2.5in]{figures/lattice_example_node.pdf}}%
+\only<5>{\includegraphics[height=2.5in]{figures/lattice_example_edges.pdf}}%
+\only<6-8>{\includegraphics[height=2.5in]{figures/lattice_example_edges_one.pdf}}%
+\only<9>{\includegraphics[height=2.5in]{figures/lattice_example_edges_one_trans.pdf}}
+\vspace{2em}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Gibbs Sampler}
+\vspace{1em}
+\centering
+\only<1>{\includegraphics[height=2.7in]{figures/lattice_full.pdf}}%
+\only<2>{\includegraphics[height=2.7in]{figures/lattice_full_binary.pdf}}
 \end{frame}
 
 \begin{frame}{Mixing time}
-\vspace{1em}
-Total variation distance
-\only<1>{
-\begin{align*}
-d(t) = d_{\mathrm{tv}}\left(\mathbb{P}_{X_t}, \pi\right)
-\end{align*}}
+\vspace{0.5em}
+\qboxa{Does the Markov chain converge?}
+
+\vspace{0.5em}
+\only<2->{Total variation distance}
 \only<2>{
 \begin{align*}
-d(t) = {\color{col1}\max \{}d_{\mathrm{tv}}\left(\mathbb{P}_{X_t}, \pi\right) {\color{col1}\mid X_0 \in \Omega\}}
+d(t) = d_{\mathrm{tv}}\left(\mathbb{P}_{S_t}, \pi\right)
+\end{align*}}
+\only<3>{
+\begin{align*}
+d(t) = {\color{col1}\max \{}d_{\mathrm{tv}}\left(\mathbb{P}_{S_t}, \pi\right) {\color{col1}\mid S_0 \in \Omega\}}
 \end{align*}
 }
-\uncover<3->{
+\alt<1,4->{\uncover<4->{
 \begin{align*}
-d(t) = \max \{d_{\mathrm{tv}}\left(\mathbb{P}_{X_t}, \pi\right) \mid X_0 \in \Omega\}
+d(t) = \max \{d_{\mathrm{tv}}\left(\mathbb{P}_{S_t}, \pi\right) \mid S_0 \in \Omega\}
 \end{align*}
+}}{}
+
+\uncover<5->{
+\vspace{-1em}
+Under mild assumptions (ergodicity), $\ \ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0$
 }
 
-\uncover<3->{
-\vspace{1em}
-Under mild assumptions (ergodicity),
-\begin{align*}
-d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0
-\end{align*}
-}
-
-\uncover<4->{
+\uncover<6->{
+\vspace{2.5em}
 \qboxa{How long does it take to get ``close enough" to $\pi$?}
 }
 
-\uncover<5->{
+\uncover<7->{
 \vspace{1em}
-Mixing time
-\begin{align*}
-t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}
-\end{align*}
+Mixing time $\ \ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}$
 }
 \end{frame}
 
@@ -603,7 +553,7 @@ t_{\textrm{mix}}(\epsilon) \leq 2n^2 \exp(\beta\zeta_{\color{col1}f})\log\left(\
 \begin{columns}[c]
 \column{0.5\textwidth}
 \centering
-\includegraphics[width=1.85in]{figures/bee_superpixels.png}
+\includegraphics[width=1.8in]{figures/bee_superpixels.png}
 \column{0.5\textwidth}
 $F_i(S) = \phi\left(|S \cap V_i|\right)$
 

@@ -20,7 +20,7 @@
   scale=1.5,
   >=latex,
   line join=bevel,
-  NN/.style={draw=textcolor,fill=textcolor,text=bgcolor,fill opacity=0.9,line width=0.1em,minimum height=2.5em,rounded corners=0pt,font=\large},
+  NN/.style={draw=textcolor,fill=textcolor,text=bgcolor,fill opacity=0.9,line width=0.1em,minimum height=2.6em,rounded corners=0pt,font=\large},
   NS/.style={draw=col1,fill=textcolor,text=bgcolor,fill opacity=0.9,circle,line width=0.3em,minimum size=3.5em},
   LL/.style={draw=textcolor,line width=0.2em},
   LS/.style={draw=col1,line width=0.2em},
@@ -29,8 +29,8 @@
   \node[NN,minimum width=13em,fill=col1] (padd) at (0,0) {$p_{\textrm{add}}$};
   \node[NN,minimum width=8em,fill=col2] (prem) at (2.46,0) {$1 - p_{\textrm{add}}$};
   
-  \node[text=col1,font=\large] (xadd) at (0,-0.7) {$X_t \leftarrow X_t \cup \{v\}$};
-  \node[text=col2,font=\large] (xrev) at (2.5,-0.7) {$X_t \leftarrow X_t \setminus \{v\}$};
+  \node[text=col1,font=\large] (xadd) at (0,-0.7) {$S_{t+1} \leftarrow S_t \cup \{v\}$};
+  \node[text=col2,font=\large] (xrev) at (2.5,-0.7) {$S_{t+1} \leftarrow S_t \setminus \{v\}$};
 \end{tikzpicture}
 
 \end{document}
