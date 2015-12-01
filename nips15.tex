@@ -335,63 +335,47 @@ $\mathbb{P}(\textrm{image} \in \textrm{summary} \mid \textrm{selected})$
 \end{columns}
 \end{frame}
 
-\begin{frame}{Inference \todo{}}
-\vspace{0.5em}
-\begin{columns}[c]
-\column{0.3\textwidth}
-\uncover<1->{
-\begin{minipage}[t][1.7em]{\textwidth}
-\centering
-Exact inference
-\end{minipage}
-
-\centering
-\includegraphics[width=1.4in]{figures/inf01_exact.pdf}
-
+\begin{frame}{Inference}
 \vspace{1em}
+
+\begin{minipage}{\textwidth}
+\begin{columns}[c]
+\column{0.43\textwidth}
+\includegraphics[width=1.85in]{figures/inf01_exact_horz.pdf}
+\column{0.57\textwidth}
 \begin{itemize}
 \item \small{Tractable only for limited subclasses}
 \vspace{1em}
 \item \#P-hard even for Ising models
 \end{itemize}
-}
-
-\column{0.3\textwidth}
-\uncover<2->{
-\begin{minipage}[t][1.7em]{\textwidth}
-\centering
-BP, Mean-field, \ldots
+\end{columns}
 \end{minipage}
 
-\centering
-\includegraphics[width=1.4in]{figures/inf02_loworder.pdf}
-
-\vspace{1em}
+\vspace{2em}
+\begin{minipage}{\textwidth}
+\begin{columns}[c]
+\column{0.43\textwidth}
+\includegraphics[width=1.85in]{figures/inf02_loworder_horz.pdf}
+\column{0.57\textwidth}
 \begin{itemize}
 \item \small{Extensively studied problem}
 \vspace{1em}
-\item \small{Exponential in model order}
+\item \small{Complexity exponential in model order}
 \end{itemize}
-}
-
-\column{0.3\textwidth}
-\uncover<3->{
-\begin{minipage}[t][1.7em]{\textwidth}
-\centering
-L-\textsc{Field}
+\end{columns}
 \end{minipage}
 
-\centering
-\includegraphics[width=1.4in]{figures/inf03_psm.pdf}
-
-\vspace{1em}
+\vspace{2em}
+\begin{minipage}{\textwidth}
+\begin{columns}[c]
+\column{0.43\textwidth}
+\includegraphics[width=1.85in]{figures/inf03_psm_horz.pdf}
+\column{0.57\textwidth}
 \begin{itemize}
-\item \small{Variational approach for general PSMs} \qcite{Djolonga and Krause, '14}
-\vspace{1.2em}
+\item Variational approach for general PSMs \qcite{Djolonga and Krause, '14}
 \end{itemize}
-}
-
 \end{columns}
+\end{minipage}
 \end{frame}
 
 \begin{frame}{Markov Chain Monte Carlo}
