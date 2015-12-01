@@ -480,17 +480,17 @@ d(t) = \max \{d_{\mathrm{tv}}\left(\mathbb{P}_{S_t}, \pi\right) \mid S_0 \in \Om
 \end{align*}
 }}{}
 
-\uncover<5->{
+\uncover<4->{
 \vspace{-1em}
 Under mild assumptions (ergodicity), $\ \ d(t) \xrightarrow{\ t\,\rightarrow\,\infty\ } 0$
 }
 
-\uncover<6->{
+\uncover<5->{
 \vspace{2.5em}
 \qboxa{How long does it take to get ``close enough" to $\pi$?}
 }
 
-\uncover<7->{
+\uncover<6->{
 \vspace{1em}
 Mixing time $\ \ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \epsilon \right\}$
 }
@@ -498,13 +498,16 @@ Mixing time $\ \ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \ep
 
 \begin{frame}{Goal}
 \begin{itemize}
-\item Mixing times for general PSMs are exponential in $|V|$
+\item<1-> Mixing times for general PSMs are exponential in $|V|$
 \vspace{1em}
-\item Exponential even for pairwise models \qcite{Jerrum and Sinclair, '93}
+\item<2-> Exponential even for pairwise models \qcite{Jerrum and Sinclair, '93}
 \end{itemize}
+
+\uncover<3->{
 \vspace{3em}
 \centering
 \qboxa{\minibox{We establish sufficient conditions for sub-exponential mixing\\of the Gibbs sampler on PSMs.}}
+}
 \end{frame}
 
 \begin{frame}{Polynomial-time Mixing}
@@ -513,11 +516,13 @@ Mixing time $\ \ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \ep
 \only<2>{\includegraphics[width=3.9in,trim=5 0 0 0,clip]{figures/ineq_mod_1.pdf}}%
 \only<3->{\includegraphics[width=3.9in,trim=5 0 0 0,clip]{figures/ineq_mod_2.pdf}}
 
+\uncover<4->{
 \vspace{4em}
 ``Distance" from modularity
 \begin{align*}
 \uncover<5->{\zeta_F \coloneqq \max_{A, B \subseteq V}} \uncover<4->{\big|F(A) + F(B) - F(A \cup B) - F(A \cap B)\big|}
 \end{align*}
+}
 \end{frame}
 
 \begin{frame}{Polynomial-time Mixing}
