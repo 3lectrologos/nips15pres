@@ -129,17 +129,19 @@
 
 \begin{frame}{Submodularity}
 \vspace{0.5em}
+\uncover<1->{
 \begin{tabular}{c*{2}{@{\hspace{3em}}c}}
 $F$ is submodular & $\Longleftrightarrow$ & $-F$ is supermodular\\[0.5em]
 $\downarrow$ & & $\downarrow$\\[0.5em]
 \qboxa{coverage / diversity} & & \qboxb{smoothness / cooperation}
 \end{tabular}
+}
 
 \vspace{2em}
 \begin{itemize}
-\item Submodular optimization is well-studied
+\item<2-> Submodular optimization is well-studied
 \vspace{1em}
-\item Little existing work on probabilistic models
+\item<3-> Little existing work on probabilistic models
 \end{itemize}
 \end{frame}
 
@@ -163,14 +165,14 @@ $\downarrow$ & & $\downarrow$\\[0.5em]
 \centering
 \only<2>{\includegraphics[width=1.8in]{figures/bee_truth.png}}%
 \only<3>{\includegraphics[width=1.8in]{figures/bee_dr1.png}}%
-\only<4>{
+\only<4-6>{
 \includegraphics[width=1.6in]{figures/grid.pdf}
 
 \vspace{1em}
 \begin{itemize}
-\item Set of all pixels $V$
+\item<5-> Set of all pixels $V$
 \vspace{1em}
-\item For $S \subseteq V$ of foreground pixels,
+\item<6-> For $S \subseteq V$ of foreground pixels,
 \begin{align*}
 p(S) \propto \exp\left(\sum_{v \sim w} F_{v, w}(S)\right)
 \end{align*}
@@ -186,6 +188,10 @@ p(S) \propto \exp\left(\sum_{v \sim w} F_{v, w}(S)\right)
 \centering
 \only<1-2,6>{\includegraphics[width=1.8in]{figures/bee_superpixels.png}}%
 \only<3-5>{\includegraphics[width=1.8in]{figures/bee_superpixels_hl_v1.pdf}}
+
+\vspace{0.5em}
+\centering
+{\small Superpixel potentials} \qcite{Kohli et al., '08}
 \column{0.5\textwidth}
 \uncover<2->{
 $V = V_1 \cup V_2 \cup \cdots \cup V_L$
@@ -238,13 +244,13 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 
 \begin{minipage}[t]{\textwidth}
 \begin{itemize}
-\item Ground set $V$ with $|V| = n$
+\item<2-> Ground set $V$ with $|V| = n$
 \end{itemize}
 \end{minipage}
 &
 \begin{minipage}[t]{\textwidth}
 \begin{itemize}
-\item Binary random vector
+\item<5-> Binary random vector
 
 \vspace{0.7em}
 \hspace{1em}$\mathcal{X} = (X_1, \ldots, X_n)$
@@ -255,13 +261,13 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 
 \begin{minipage}[t]{\textwidth}
 \begin{itemize}
-\item $F : 2^V \to \mathbb{R}$
+\item<3-> $F : 2^V \to \mathbb{R}$
 \end{itemize}
 \end{minipage}
 &
 \begin{minipage}[t]{\textwidth}
 \begin{itemize}
-\item Set of factors $\phi_i : \mathcal{X}_i \to \mathbb{R}$
+\item<6-> Set of factors $\phi_i : \mathcal{X}_i \to \mathbb{R}$
 
 \vspace{0.7em}
 \end{itemize}
@@ -269,7 +275,7 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 
 \begin{minipage}[t]{\textwidth}
 \begin{itemize}
-\item Distribution over subsets
+\item<4-> Distribution over subsets
 
 \vspace{1em}
 $p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$
@@ -278,7 +284,7 @@ $p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$
 &
 \begin{minipage}[t]{\textwidth}
 \begin{itemize}
-\item Distribution over binary vectors
+\item<7-> Distribution over binary vectors
 
 \vspace{0.3em}
 $p(X) = \displaystyle\frac{1}{Z} \exp\left(\sum_i \phi_i(X_i)\right)$
@@ -288,9 +294,10 @@ $p(X) = \displaystyle\frac{1}{Z} \exp\left(\sum_i \phi_i(X_i)\right)$
 \end{minipage}\\ \midrule
 \end{tabular}
 
+\uncover<8>{
 \vspace{0.2em}
 \centering
-\qboxa{Model order: $\max_i |\mathcal{X}_i|$}
+\qboxa{Model order: $\max_i |\mathcal{X}_i|$}}
 \end{frame}
 
 \input{venn}
@@ -321,6 +328,7 @@ $\mathbb{P}(\textrm{image} \in \textrm{summary} \mid \textrm{selected})$
 \vspace{0.5em}
 \begin{columns}[c]
 \column{0.3\textwidth}
+\uncover<1->{
 \begin{minipage}[t][1.7em]{\textwidth}
 \centering
 Exact inference
@@ -331,12 +339,14 @@ Exact inference
 
 \vspace{1em}
 \begin{itemize}
-\item \small{Tractable only for specific subclasses}
+\item \small{Tractable only for limited subclasses}
 \vspace{1em}
 \item \#P-hard even for Ising models
 \end{itemize}
+}
 
 \column{0.3\textwidth}
+\uncover<2->{
 \begin{minipage}[t][1.7em]{\textwidth}
 \centering
 BP, Mean-field, \ldots
@@ -351,8 +361,10 @@ BP, Mean-field, \ldots
 \vspace{1em}
 \item \small{Exponential in model order}
 \end{itemize}
+}
 
 \column{0.3\textwidth}
+\uncover<3->{
 \begin{minipage}[t][1.7em]{\textwidth}
 \centering
 L-\textsc{Field}
@@ -366,6 +378,8 @@ L-\textsc{Field}
 \item \small{Variational approach for general PSMs} \qcite{Djolonga and Krause, '14}
 \vspace{1.2em}
 \end{itemize}
+}
+
 \end{columns}
 \end{frame}
 
@@ -373,27 +387,23 @@ L-\textsc{Field}
 \begin{tabular}{*{2}{@{}l}}
 \begin{minipage}{0.45\textwidth}
 \begin{itemize}
-\item State space $\Omega$
+\item<1-> State space $\Omega$
 \end{itemize}
-\end{minipage} & \color{col1}powerset of $V$\\[1em]
+\end{minipage} & \uncover<2->{\color{col1}powerset of $V$}\\[1.5em]
 \begin{minipage}{0.45\textwidth}
 \begin{itemize}
 \item Transition matrix $P$
 \end{itemize}
-\end{minipage} & \color{col1}Gibbs sampler
-\end{tabular}
-
-\vspace{3em}
-Define Markov chain $\left(S_t\right)_{t \geq 0}$ that moves according to $P$
-
-\vspace{2em}
-\begin{tabular}{*{2}{@{}l}}
+\end{minipage} & \uncover<3->{\color{col1}Gibbs sampler}\\[1.5em]
 \begin{minipage}{0.45\textwidth}
 \begin{itemize}
 \item Stationary distribution $\pi$
 \end{itemize}
-\end{minipage} & \color{col1}PSM distribution
+\end{minipage} & \uncover<4->{\color{col1}PSM distribution}
 \end{tabular}
+
+\vspace{3em}
+Define Markov chain $\left(S_t\right)_{t \geq 0}$ that moves according to $P$
 \end{frame}
 
 \begin{frame}{State Space of $V = \{1, 2, 3\}$}
@@ -488,17 +498,22 @@ Mixing time $\ \ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \ep
 
 \begin{frame}{Polynomial-time Mixing}
 \vspace{0.5em}
-\includegraphics[width=3.9in,trim=5 0 0 0,clip]{figures/ineq_mod.pdf}
+\only<1>{\includegraphics[width=3.9in,trim=5 0 0 0,clip]{figures/ineq_mod_0.pdf}}%
+\only<2>{\includegraphics[width=3.9in,trim=5 0 0 0,clip]{figures/ineq_mod_1.pdf}}%
+\only<3->{\includegraphics[width=3.9in,trim=5 0 0 0,clip]{figures/ineq_mod_2.pdf}}
 
 \vspace{4em}
 ``Distance" from modularity
 \begin{align*}
-\zeta_F \coloneqq \max_{A, B \subseteq V} \big|F(A) + F(B) - F(A \cup B) - F(A \cap B)\big|
+\uncover<5->{\zeta_F \coloneqq \max_{A, B \subseteq V}} \uncover<4->{\big|F(A) + F(B) - F(A \cup B) - F(A \cap B)\big|}
 \end{align*}
 \end{frame}
 
 \begin{frame}{Polynomial-time Mixing}
-\includegraphics[width=3.9in]{figures/decomp.pdf}
+\vspace{0.5em}
+\centering
+\only<1>{\includegraphics[width=3.9in]{figures/decomp_0.pdf}}%
+\only<2>{\includegraphics[width=3.9in]{figures/decomp_1.pdf}}
 \end{frame}
 
 \begin{frame}{Polynomial-time Mixing}
@@ -522,15 +537,19 @@ $F_i(S) = \phi\left(|S \cap V_i|\right)$
 \vspace{1em}
 $F(S) = \displaystyle\sum_{i=1}^L F_i(S)$
 
+\uncover<2->{
 \vspace{3em}
 Easy to show that
 
 \vspace{0.5em}
 \hspace{2em}$\zeta_f \leq L \phi_{\textrm{max}}$
+}
 
+\uncover<3->{
 \vspace{3em}
 \qboxa{
 $|V_i| \approx 10^5\ $ vs. $\ L \approx 50$
+}
 }
 \end{columns}
 \end{frame}
@@ -570,28 +589,28 @@ t_{\textrm{mix}}(\epsilon) \leq \frac{1}{1 - \gamma_f} n \left(\log n + \log\eps
 
 \vspace{0.5em}
 \begin{itemize}
-\item $\gamma_f$ = ``maximum total influence''
+\item<2-> $\gamma_f$ = ``maximum total influence''
 \vspace{0.5em}
-\item Simple way to bound $\gamma_f$ for decomposable submodular functions
+\item<3-> Simple way to bound $\gamma_f$ for decomposable submodular functions
 \vspace{0.5em}
-\item Closely related to Dobrushin uniqueness conditions, and influence matrix norms \qcite{Dyer et al., '09}
+\item<4-> Closely related to Dobrushin uniqueness conditions, and influence matrix norms \qcite{Dyer et al., '09}
 \vspace{0.5em}
-\item Similar theorem by \qcite{Rebeschini and Karbasi, '15}
+\item<5-> Similar theorem by \qcite{Rebeschini and Karbasi, '15}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Evaluation \todo{}}
 \vspace{0.5em}
 \begin{itemize}
-\item Compare against variational approach \qcite{Djolonga and Krause, '14}
+\item<1-> Compare against variational approach \qcite{Djolonga and Krause, '14}
 \vspace{1.5em}
-\item Three models with $|V| = 20$
+\item<2-> Three models with $|V| = 20$
 \vspace{1.5em}
-\item Here : facility location model (log-submodular)
+\item<3-> Here : facility location model (log-submodular)
 \vspace{1.5em}
-\item Compute marginals $p(v \mid S)$ for all $v \in V \setminus S$
+\item<4-> Compute marginals $p(v \mid S)$ for all $v \in V \setminus S$
 \vspace{1.5em}
-\item Start with $S = \varnothing$ and progressively increase it
+\item<5-> Start with $S = \varnothing$ and progressively increase it
 \end{itemize}
 \end{frame}
 

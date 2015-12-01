@@ -1,0 +1,57 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+\usepackage{minibox}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+\colorlet{col1light}{col1!50!textcolor}
+\definecolor{col2}{HTML}{F279DF}
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+\setsansfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  scale=1.5,
+  >=latex,
+  line join=bevel,
+  NS/.style={draw=textcolor,text=textcolor,minimum size=1em,font=\normalsize,anchor=south,line width=0.3pt},
+  TT/.style={text=textcolor,minimum height=4em,anchor=mid},
+  LL/.style={->,line width=0.5pt}
+  ]
+  \node[NS] (c) at (0,0.5) {\minibox{submodular}};
+  \node[NS] (c) at (1.4,0.5) {\minibox{constant}};
+  \node[NS,text=col1] (c) at (2.9,0.5) {\minibox{modular}};
+  \node[NS,text=col2] (c) at (4.65,0.5) {\minibox{normalized\\monotone\\submodular}};
+
+  \node[TT] (eq01) at (0,0) {$F(S)$};
+  \node[TT] (eq02) at (0.8,0) {$=$};
+  \node[TT] (eq03) at (1.4,0) {$c$};
+  \node[TT] (eq04) at (2,0) {$+$};
+  \node[TT] (eq05) at (2.9,0) {$\color{col1}\displaystyle\sum_{v \in S}m_v$};
+  \node[TT] (eq06) at (3.83,0) {$+$};
+  \node[TT,text=col2] (eq07) at (4.65,0) {$f(S)$};
+
+  \node[TT,opacity=0] (eq11) at (0,-1.5) {$\exp(F(S))$};
+  \node[TT,opacity=0] (eq12) at (0.8,-1.5) {$\propto$};
+  \node[TT,opacity=0] (eq15) at (2.9,-1.5) {$\color{col1}\displaystyle\prod_{v \in S}\exp(m_v)$};
+  \node[TT,opacity=0] (eq16) at (3.83,-1.5) {$\times$};
+  \node[TT,text=col2,opacity=0] (eq17) at (4.65,-1.5) {$\exp(f(S))$};
+  
+  \draw [LL,textcolor,opacity=0] (0,-0.5) -- (0,-1);
+  \draw [LL,col1,opacity=0] (2.9,-0.5) -- (2.9,-1);
+  \draw [LL,col2,opacity=0] (4.65,-0.5) -- (4.65,-1);
+
+  \node[NS,anchor=north,opacity=0] (c) at (0,-2) {\minibox{PSM}};
+  \node[NS,text=col1,anchor=north,opacity=0] (c) at (2.9,-2) {\minibox{product}};
+  \node[NS,text=col2,anchor=north,opacity=0] (c) at (4.65,-2) {\minibox{``complex''\\interactions}};
+\end{tikzpicture}
+
+\end{document}
