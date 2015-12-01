@@ -238,10 +238,13 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 \begin{frame}{Probabilistic Submodular Models}
 \vspace{0.5em}
 \centering
-\includegraphics[width=4.2in]{figures/psm.pdf}
+\only<1>{\includegraphics[width=4.2in]{figures/psm_0.pdf}}%
+\only<2>{\includegraphics[width=4.2in]{figures/psm_1.pdf}}
 
+\uncover<3->{
 \vspace{0.5em}
 \qboxa{$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$} $F : 2^V \to \mathbb{R}$ is a submodular or supermodular function
+}
 \end{frame}
 
 \begin{frame}{Probabilistic Submodular Models \todo{}}
