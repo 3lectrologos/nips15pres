@@ -40,11 +40,11 @@
 \end{tcolorbox}%
 }
 
-\newcommand{\qtheorem}[1]{%
+\newcommand{\qtheorem}[2]{%
 \begin{tcolorbox}[enhanced jigsaw,size=tight,boxsep=7pt,boxrule=0.7pt,coltext=textcolor,colframe=col2,colback=col1,opacityback=0,opacityframe=1]
 \begin{minipage}{\textwidth}
-{\color{col2}\strut Theorem}\\[0.7em]
-#1
+{\color{col2}\strut Theorem #1}\\[0.7em]
+#2
 \end{minipage}
 \end{tcolorbox}%
 }
@@ -90,41 +90,11 @@
 
 \vspace{0.5em}
 \centering
-\uncover<5->{\includegraphics[width=2.75in]{figures/submod_1.pdf}}
-\end{frame}
-
-\begin{frame}{Submodularity}
-\vspace{0.5em}
-\begin{itemize}
-\item Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
-\vspace{0.5em}
-\item Encourage coverage and diversity of the summary
-\vspace{0.5em}
-\item Set of all images $V$
-\vspace{0.5em}
-\item For any summary $S \subseteq V\ \ \longrightarrow\ \ F(S) \in \mathbb{R}$
-\end{itemize}
-
-\vspace{0.5em}
-\centering
-\includegraphics[width=2.75in]{figures/submod_2.pdf}
-\end{frame}
-
-\begin{frame}{Submodularity}
-\vspace{0.5em}
-\begin{itemize}
-\item Facility location objective \qcite{Lin and Bilmes, '12} \qcite{Tschiatschek et al., '14}
-\vspace{0.5em}
-\item Encourage coverage and diversity of the summary
-\vspace{0.5em}
-\item Set of all images $V$
-\vspace{0.5em}
-\item For any summary $S \subseteq V\ \ \longrightarrow\ \ F(S) \in \mathbb{R}$
-\end{itemize}
-
-\vspace{0.5em}
-\centering
-\includegraphics[width=2.75in]{figures/submod_3.pdf}
+\alt<1-5>{
+\uncover<5>{\includegraphics[width=2.75in]{figures/submod_1.pdf}}%
+}{}%
+\only<6>{\includegraphics[width=2.75in]{figures/submod_2.pdf}}%
+\only<7>{\includegraphics[width=2.75in]{figures/submod_3.pdf}}
 \end{frame}
 
 \begin{frame}{Submodularity}
@@ -317,7 +287,17 @@ $p(X) \propto \exp\Big(\sum_i \phi_i\left(X_{c(i)}\right)\Big)$
 \qboxa{Model order: $\max_i |c(i)|$}}
 \end{frame}
 
-\input{venn}
+\begin{frame}{Landscape of Models}
+\vspace{0.5em}
+\centering
+\only<1>{\includegraphics[width=4.3in]{figures/venn01.pdf}}%
+\only<2>{\includegraphics[width=4.3in]{figures/venn02.pdf}}%
+\only<3>{\includegraphics[width=4.3in]{figures/venn03.pdf}}%
+\only<4>{\includegraphics[width=4.3in]{figures/venn04.pdf}}%
+\only<5>{\includegraphics[width=4.3in]{figures/venn06.pdf}}%
+\only<6>{\includegraphics[width=4.3in]{figures/venn07.pdf}}%
+\only<7>{\includegraphics[width=4.3in]{figures/venn08.pdf}}
+\end{frame}
 
 \begin{frame}{Inference}
 \vspace{1em}
@@ -537,7 +517,7 @@ Mixing time $\ \ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \ep
 \end{frame}
 
 \begin{frame}{Polynomial-time Mixing}
-\qtheorem{
+\qtheorem{1}{
 For any submodular or supermodular set function $F$, the mixing time of the Gibbs sampler is bounded by
 \begin{align*}
 t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp(\zeta_f)\log\epsilon^{-1}\right).
@@ -601,7 +581,7 @@ $|V_i| \approx 10^5\ $ vs. $\ L \approx 50$
 
 \begin{frame}{Fast Mixing}
 \vspace{0.5em}
-\qtheorem{
+\qtheorem{2}{
 For any submodular or supermodular set function $F$, if $\gamma_f \leq 1$, the mixing time of the Gibbs sampler is bounded by
 \vspace{-0.5em}
 \begin{align*}
@@ -611,13 +591,13 @@ t_{\textrm{mix}}(\epsilon) \leq \frac{1}{1 - \gamma_f} n \left(\log n + \log\eps
 
 \vspace{0.5em}
 \begin{itemize}
-\item<2-> $\gamma_f$ = ``maximum total influence''
+\item<1-> $\gamma_f$ = ``maximum total influence''
 \vspace{0.5em}
-\item<3-> Simple way to bound $\gamma_f$ for decomposable submodular functions
+\item<2-> Simple way to bound $\gamma_f$ for decomposable submodular functions
 \vspace{0.5em}
-\item<4-> Closely related to Dobrushin uniqueness conditions, and influence matrix norms \qcite{Dyer et al., '09}
+\item<3-> Closely related to Dobrushin uniqueness conditions, and influence matrix norms \qcite{Dyer et al., '09}
 \vspace{0.5em}
-\item<5-> Similar theorem by \qcite{Rebeschini and Karbasi, '15}
+\item<4-> Similar theorem by \qcite{Rebeschini and Karbasi, '15}
 \end{itemize}
 \end{frame}
 
@@ -639,37 +619,12 @@ t_{\textrm{mix}}(\epsilon) \leq \frac{1}{1 - \gamma_f} n \left(\log n + \log\eps
 \begin{frame}{Evaluation}
 \vspace{1em}
 \centering
-\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_0.pdf}
-\end{frame}
-
-\begin{frame}{Evaluation}
-\vspace{1em}
-\centering
-\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_1.pdf}
-\end{frame}
-
-\begin{frame}{Evaluation}
-\vspace{1em}
-\centering
-\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_2.pdf}
-\end{frame}
-
-\begin{frame}{Evaluation}
-\vspace{1em}
-\centering
-\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_3.pdf}
-\end{frame}
-
-\begin{frame}{Evaluation}
-\vspace{1em}
-\centering
-\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_4.pdf}
-\end{frame}
-
-\begin{frame}{Evaluation}
-\vspace{1em}
-\centering
-\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_5.pdf}
+\only<1>{\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_0.pdf}}%
+\only<2>{\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_1.pdf}}%
+\only<3>{\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_2.pdf}}%
+\only<4>{\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_3.pdf}}%
+\only<5>{\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_4.pdf}}%
+\only<6>{\includegraphics[width=4.15in,trim=6 0 0 0,clip]{figures/floc_5.pdf}}
 \end{frame}
 
 \end{document}
