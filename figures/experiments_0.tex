@@ -1,0 +1,40 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}
+\usepackage{minibox}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+\colorlet{col1light}{col1!50!textcolor}
+\definecolor{col2}{HTML}{F279DF}
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+\setsansfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  scale=1.5,
+  >=latex,
+  line join=bevel,
+  NS/.style={draw=textcolor,text=textcolor,font=\normalsize,anchor=south,line width=1.5pt,minimum width=3em,minimum height=7em},
+  LL/.style={->,line width=0.5pt}
+  ]
+
+  \node[NS,draw=col2,text=textcolor,fill=col2,draw opacity=1,fill opacity=0.1,text opacity=1] (c) at (0,0) {\begin{minipage}{5em}\centering pairwise\\ MRF\end{minipage}};
+  
+  \node[NS,draw=col2,text=textcolor,fill=col2,draw opacity=1,fill opacity=0.1,text opacity=1] (c) at (2.5,0) {\begin{minipage}{5em}\centering higher-order\\ MRF\end{minipage}};
+  
+  \node[NS,draw=col1,text=textcolor,fill=col1,draw opacity=1,fill opacity=0.1,text opacity=1] (c) at (5,0) {\begin{minipage}{5em}\centering facility location\end{minipage}};
+  
+  \node[text=col2,font=\scriptsize] (c) at (0,1.48) {log-supermodular};
+  \node[text=col2,font=\scriptsize] (c) at (2.5,1.48) {log-supermodular};
+  \node[text=col1,font=\scriptsize] (c) at (5,1.48) {log-submodular};
+\end{tikzpicture}
+
+\end{document}

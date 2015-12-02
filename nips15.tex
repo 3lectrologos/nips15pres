@@ -604,18 +604,21 @@ t_{\textrm{mix}}(\epsilon) \leq \frac{1}{1 - \gamma_f} n \left(\log n + \log\eps
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Evaluation \todo{}}
+\begin{frame}{Evaluation}
 \vspace{0.5em}
+
+Compare against variational approach \qcite{Djolonga and Krause, '14}
+
+\vspace{2em}
+\centering
+\only<1>{\includegraphics[width=3.5in,clip]{figures/experiments_0.pdf}}%
+\only<2->{\includegraphics[width=3.5in,clip]{figures/experiments_1.pdf}}
+
+\vspace{2em}
 \begin{itemize}
-\item<1-> Compare against variational approach \qcite{Djolonga and Krause, '14}
-\vspace{1.5em}
-\item<2-> Three models with $|V| = 20$
-\vspace{1.5em}
-\item<3-> Here : facility location model (log-submodular)
-\vspace{1.5em}
-\item<4-> Compute marginals $p(v \mid S)$ for all $v \in V \setminus S$
-\vspace{1.5em}
-\item<5-> Start with $S = \varnothing$ and progressively increase it
+\item<3-> Compute $\ p(v \mid S)$
+\vspace{0.5em}
+\item<4-> $|V| = 20$ $\ \ \longrightarrow\ \ $ compare to exact marginals
 \end{itemize}
 \end{frame}
 
