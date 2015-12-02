@@ -357,6 +357,7 @@ $\mathbb{P}(\textrm{image} \in \textrm{summary} \mid \textrm{selected})$
 \end{columns}
 \end{minipage}
 
+\uncover<2->{
 \vspace{2em}
 \begin{minipage}{\textwidth}
 \begin{columns}[c]
@@ -370,7 +371,9 @@ $\mathbb{P}(\textrm{image} \in \textrm{summary} \mid \textrm{selected})$
 \end{itemize}
 \end{columns}
 \end{minipage}
+}
 
+\uncover<3->{
 \vspace{2em}
 \begin{minipage}{\textwidth}
 \begin{columns}[c]
@@ -382,6 +385,7 @@ $\mathbb{P}(\textrm{image} \in \textrm{summary} \mid \textrm{selected})$
 \end{itemize}
 \end{columns}
 \end{minipage}
+}
 \end{frame}
 
 \begin{frame}{Inference}
@@ -398,21 +402,23 @@ $\mathbb{P}(\textrm{image} \in \textrm{summary} \mid \textrm{selected})$
 \begin{itemize}
 \item<1-> State space $\Omega$
 \end{itemize}
-\end{minipage} & \uncover<2->{\color{col1}powerset of $V$}\\[1.5em]
+\end{minipage} & \uncover<3->{\color{col1}powerset of $V$}\\[1.5em]
 \begin{minipage}{0.45\textwidth}
 \begin{itemize}
 \item Transition matrix $P$
 \end{itemize}
-\end{minipage} & \uncover<3->{\color{col1}Gibbs sampler}\\[1.5em]
+\end{minipage} & \uncover<4->{\color{col1}Gibbs sampler}\\[1.5em]
 \begin{minipage}{0.45\textwidth}
 \begin{itemize}
 \item Stationary distribution $\pi$
 \end{itemize}
-\end{minipage} & \uncover<4->{\color{col1}PSM distribution}
+\end{minipage} & \uncover<5->{\color{col1}PSM distribution}
 \end{tabular}
 
+\uncover<2->{
 \vspace{3em}
-Define Markov chain $\left(S_t\right)_{t \geq 0}$ that moves according to $P$
+Markov chain $\left(S_t\right)_{t \geq 0}$ that moves according to $P$
+}
 \end{frame}
 
 \begin{frame}{State Space of $V = \{1, 2, 3\}$}
