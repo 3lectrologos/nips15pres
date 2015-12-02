@@ -247,7 +247,7 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 }
 \end{frame}
 
-\begin{frame}{Probabilistic Submodular Models \todo{}}
+\begin{frame}{Probabilistic Submodular Models}
 \vspace{1em}
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{>{\arraybackslash}p{0.47\textwidth}>{\arraybackslash}p{0.45\textwidth}}
@@ -264,7 +264,7 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 \item<5-> Binary random vector
 
 \vspace{0.7em}
-\hspace{1em}$\mathcal{X} = (X_1, \ldots, X_n)$
+\hspace{1em}$X = (X_1, \ldots, X_n)$
 
 \vspace{0.5em}
 \end{itemize}
@@ -272,13 +272,19 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 
 \begin{minipage}[t]{\textwidth}
 \begin{itemize}
-\item<3-> $F : 2^V \to \mathbb{R}$
+\item<3->Sub- or supermodular function
+
+\vspace{0.7em}
+\hspace{1em}$F : 2^V \to \mathbb{R}$
 \end{itemize}
 \end{minipage}
 &
 \begin{minipage}[t]{\textwidth}
 \begin{itemize}
-\item<6-> Set of factors $\phi_i : \mathcal{X}_i \to \mathbb{R}$
+\item<6-> Set of factors
+
+\vspace{0.7em}
+\hspace{1em}$\phi_i : \{0,1\}^{c(i)} \to \mathbb{R}$
 
 \vspace{0.7em}
 \end{itemize}
@@ -288,8 +294,8 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 \begin{itemize}
 \item<4-> Distribution over subsets
 
-\vspace{1em}
-$p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$
+\vspace{0.7em}
+\hspace{1em}$p(S) \propto \exp(F(S))$
 \end{itemize}
 \end{minipage}
 &
@@ -297,18 +303,18 @@ $p(S) = \displaystyle\frac{1}{Z} \exp(F(S))$
 \begin{itemize}
 \item<7-> Distribution over binary vectors
 
-\vspace{0.3em}
-$p(X) = \displaystyle\frac{1}{Z} \exp\left(\sum_i \phi_i(X_i)\right)$
+\vspace{0.45em}
+$p(X) \propto \exp\Big(\sum_i \phi_i\left(X_{c(i)}\right)\Big)$
 \end{itemize}
 
-\vspace{0.5em}
+\vspace{0.1em}
 \end{minipage}\\ \midrule
 \end{tabular}
 
 \uncover<8>{
-\vspace{0.2em}
+\vspace{0.15em}
 \centering
-\qboxa{Model order: $\max_i |\mathcal{X}_i|$}}
+\qboxa{Model order: $\max_i |c(i)|$}}
 \end{frame}
 
 \input{venn}
