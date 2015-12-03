@@ -73,7 +73,7 @@
 \begin{frame}{Image Collection Summarization}
 \vspace{0.5em}
 \centering
-\includegraphics[width=4.2in]{figures/flickr_probs_0.png}
+\includegraphics[width=3.6in]{figures/flickr_probs_0.png}
 \end{frame}
 
 \begin{frame}{Submodularity}
@@ -115,13 +115,14 @@ $\downarrow$ & & $\downarrow$\\[0.5em]
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Interactive Summarization}
-\vspace{0.5em}
+\begin{frame}{Sampling Summaries}
+\vspace{1em}
 \centering
-\only<1>{\includegraphics[width=4.2in]{figures/flickr_probs_1_1.png}}%
-\only<2>{\includegraphics[width=4.2in]{figures/flickr_probs_1_2.png}}%
-\only<3>{\includegraphics[width=4.2in]{figures/flickr_probs_2_1.png}}%
-\only<4>{\includegraphics[width=4.2in]{figures/flickr_probs_2_2.png}}
+\only<1>{\includegraphics[width=4.2in]{figures/flickr_summaries.pdf}}%
+%\only<1>{\includegraphics[width=4.2in]{figures/flickr_probs_1_1.png}}%
+%\only<2>{\includegraphics[width=4.2in]{figures/flickr_probs_1_2.png}}%
+%\only<3>{\includegraphics[width=4.2in]{figures/flickr_probs_2_1.png}}%
+%\only<4>{\includegraphics[width=4.2in]{figures/flickr_probs_2_2.png}}
 \end{frame}
 
 \begin{frame}{Foreground / Background Segmentation}
@@ -302,22 +303,21 @@ $p(X) \propto \exp\Big(\sum_i \phi_i\left(X_{c(i)}\right)\Big)$
 \begin{frame}{Inference}
 \vspace{1em}
 \begin{columns}[c]
-\column{0.5\textwidth}
+\column{0.46\textwidth}
 \centering
 $\mathbb{P}(\textrm{pixel label})$
 
 \vspace{0.7em}
 \centering
-\includegraphics[width=1.75in]{figures/bee_marginals.png}
+\includegraphics[height=2.6in]{figures/bee_marginals.png}
 
-\column{0.5\textwidth}
+\column{0.54\textwidth}
 \centering
 $\mathbb{P}(\textrm{image} \in \textrm{summary} \mid \textrm{selected})$
 
 \vspace{0.7em}
 \centering
-\includegraphics[width=1.75in]{figures/flickr_probs_1_1_portrait.png}
-\vspace{2.85em}
+\includegraphics[height=2.6in]{figures/flickr_inference.pdf}
 \end{columns}
 \end{frame}
 
