@@ -251,7 +251,7 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 \item<6-> Set of factors
 
 \vspace{0.7em}
-\hspace{1em}$\phi_i : \{0,1\}^{c(i)} \to \mathbb{R}$
+\hspace{1em}$\phi_i : \{0,1\}^{\mathcal{C}_i} \to \mathbb{R}$
 
 \vspace{0.7em}
 \end{itemize}
@@ -271,7 +271,7 @@ $p(S) \propto \exp\left(\displaystyle\sum_{i=1}^L F_i(S)\right)$
 \item<7-> Distribution over binary vectors
 
 \vspace{0.45em}
-$p(X) \propto \exp\Big(\sum_i \phi_i\left(X_{c(i)}\right)\Big)$
+$p(X) \propto \exp\Big(\sum_i \phi_i\left(X_{\mathcal{C}_i}\right)\Big)$
 \end{itemize}
 
 \vspace{0.1em}
@@ -281,7 +281,7 @@ $p(X) \propto \exp\Big(\sum_i \phi_i\left(X_{c(i)}\right)\Big)$
 \uncover<8>{
 \vspace{0.15em}
 \centering
-\qboxa{Model order: $\max_i |c(i)|$}}
+\qboxa{Model order: $\max_i |\mathcal{C}_i|$}}
 \end{frame}
 
 \begin{frame}{Landscape of Models}
@@ -561,7 +561,7 @@ $|V_i| \approx 10^5\ $ vs. $\ L \approx 50$
 \only<8>{Capacity of an edge $\ \sim\ $ transition probability of Gibbs sampler}%
 \only<9>{Congestion of an edge $\ \sim\ $ (total flow through edge) / capacity}%
 \only<10>{$t_{\mathrm{mix}}(\epsilon) = \mathcal{O}\left(\max\{\textrm{congestion}\}\log \epsilon^{-1}\right)$ \qcite{Sinclair, '92}}%
-\only<11-13>{We bound the maximum congestion of a PSM using $\zeta_f$}
+\only<11>{We bound the maximum congestion of a PSM using $\zeta_f$}
 
 \vspace{1em}
 \centering
@@ -573,9 +573,7 @@ $|V_i| \approx 10^5\ $ vs. $\ L \approx 50$
 \only<6>{\includegraphics[width=3.6in]{figures/cp_easy_path_3.pdf}}%
 \only<7>{\includegraphics[width=3.6in]{figures/cp_easy_path_4.pdf}}%
 \only<8>{\includegraphics[width=3.6in]{figures/cp_easy.pdf}}%
-\only<9-11>{\includegraphics[width=3.6in]{figures/cp_easy_cong.pdf}}%
-\only<12>{\includegraphics[width=3.6in]{figures/cp_hard.pdf}}%
-\only<13>{\includegraphics[width=3.6in]{figures/cp_hard_cong.pdf}}
+\only<9-11>{\includegraphics[width=3.6in]{figures/cp_easy_cong.pdf}}
 \end{frame}
 
 \begin{frame}{Fast Mixing}
