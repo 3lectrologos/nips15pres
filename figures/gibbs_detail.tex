@@ -1,0 +1,52 @@
+\documentclass[varwidth]{standalone}
+
+
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[skins,breakable]{tcolorbox}
+\usepackage{minibox}
+\usepackage{mathtools}
+\usepackage{amsmath,amsfonts}
+
+\RequirePackage{enumitem}
+\setlist[itemize,1]{label=\raisebox{1.2pt}{\scriptsize$\circ$}}
+
+\definecolor{bgcolor}{HTML}{2e3037}
+\definecolor{textcolor}{HTML}{EEEEFF}
+\definecolor{col1}{HTML}{39c0ba}
+\colorlet{col1light}{col1!50!textcolor}
+\definecolor{col2}{HTML}{F279DF}
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{xltxtra}
+\setmainfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+\setsansfont[Ligatures={Common,TeX}]{Gill Sans MT Std Light}
+
+\newcommand{\qcite}[1]{{\scriptsize\color{col2}[#1]}}
+
+\begin{document}
+
+\color{textcolor}
+
+Start at $S_0$
+
+\vspace{0.7em}
+For $t = 1, 2, \ldots$
+\vspace{0.4em}
+\begin{itemize}
+\item Select random $v \in V$
+\vspace{0.4em}
+\item $\Delta \gets F(S_t \cup \{v\}) - F(S_t \setminus \{v\})$
+\vspace{0.4em}
+\item $p_{\textrm{add}} \gets e^{\Delta} / \left(1 + e^{\Delta}\right)$
+\vspace{0.4em}
+\item Flip biased coin
+
+\vspace{-1.5em}
+\begin{minipage}{0.5\textwidth}\vspace{2em}\includegraphics[width=2in]{gibbs.pdf}\end{minipage}
+\end{itemize}
+
+\end{document}

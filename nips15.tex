@@ -481,7 +481,7 @@ Mixing time $\ \ \ t_{\textrm{mix}}(\epsilon) = \min \left\{t \mid d(t) \leq \ep
 
 \begin{frame}{Goal}
 \begin{itemize}
-\item<1-> Mixing times for general PSMs are exponential in $|V|$
+\item<1-> Mixing times for general PSMs are exponential in $|V| = n$
 \vspace{1em}
 \item<2-> Exponential even for pairwise models \qcite{Jerrum and Sinclair, '93}
 \end{itemize}
@@ -590,7 +590,7 @@ t_{\textrm{mix}}(\epsilon) \leq \frac{1}{1 - \gamma_f} n \left(\log n + \log\eps
 \begin{itemize}
 \item<1-> $\gamma_f$ = ``maximum total influence''
 \vspace{0.5em}
-\item<2-> Simple way to bound $\gamma_f$ for decomposable submodular functions
+\item<2-> Simple way to bound $\gamma_f$, if $f(S) = \sum_i f_i(S)$
 \vspace{0.5em}
 \item<3-> Closely related to Dobrushin uniqueness conditions, and influence matrix norms \qcite{Dyer et al., '09}
 \vspace{0.5em}
@@ -641,13 +641,55 @@ Compare against variational approach \qcite{Djolonga and Krause, '14}
 \begin{itemize}
 \item<3-> Identify higher-order models amenable to efficient inference
 \vspace{1em}
-\item<4-> First indications that sub-/supermodularity may lead to faster mixing
+\item<4-> First indications that sub-/supermodularity can lead to faster mixing
 \end{itemize}
 
 \uncover<5->{
 \vspace{1em}
 \centering
 \qboxa{Poster \#70}
+}
+\end{frame}
+
+\begin{frame}{Backup I}
+\vspace{1em}
+Start at $S_0$
+
+\vspace{1.1em}
+For $t = 1, 2, \ldots$
+\vspace{1.1em}
+\begin{itemize}
+\item Select random $v \in V$
+\vspace{1.1em}
+\item $\Delta \gets F(S_t \cup \{v\}) - F(S_t \setminus \{v\})$
+\vspace{1.1em}
+\item $p_{\textrm{add}} \gets e^{\Delta} / \left(1 + e^{\Delta}\right)$
+\vspace{1.1em}
+\item Flip biased coin
+
+\vspace{-1em}
+\begin{minipage}{0.5\textwidth}\vspace{2em}\includegraphics[width=2.5in]{figures/gibbs.pdf}\end{minipage}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Backup II}
+\vspace{0.5em}
+\centering
+\includegraphics[width=4.3in]{figures/venn07_old_nobold.pdf}
+\end{frame}
+
+\begin{frame}{Backup III}
+\qtheorem{1}{
+For any set function $F$, the mixing time of the Gibbs sampler is bounded by
+\begin{align*}
+t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp({\color{col1}2\zeta_F})\log\epsilon^{-1}\right).
+\end{align*}
+
+\vspace{1em}
+For any {\color{col1}submodular or supermodular} set function $F$, the mixing time of the Gibbs sampler is bounded by
+\begin{align*}
+t_{\textrm{mix}}(\epsilon) = \mathcal{O}\left(n^2 \exp({\color{col1}\zeta_f})\log\epsilon^{-1}\right).
+\end{align*}
 }
 \end{frame}
 
