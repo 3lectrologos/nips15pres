@@ -49,3 +49,11 @@
 \setlist[itemize,1]{label=\raisebox{1.2pt}{\scriptsize$\circ$}}
 
 \setlength{\leftmargini}{1em}
+
+% Avoid random transparencies in Adobe Acrobat
+\RequirePackage{everypage}
+\AddEverypageHook{%
+  \makeatletter%
+  \special{pdf: put @thispage <</Group << /S /Transparency /I true /CS /DeviceRGB>> >>}%
+  \makeatother%
+}%

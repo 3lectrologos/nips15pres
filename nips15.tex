@@ -10,23 +10,9 @@
 \usepackage{minibox}
 \usepackage{mathtools}
 
-% Avoid random transparencies in Adobe Acrobat
-\usepackage{everypage}
-\AddEverypageHook{%
-  \makeatletter%
-  \special{pdf: put @thispage <</Group << /S /Transparency /I true /CS /DeviceRGB>> >>}%
-  \makeatother%
-}%
-
 \newcommand{\todo}[1]{{\scriptsize\color{yellow}\textsc{[Todo]}}}
 
 \newcommand{\qcite}[1]{{\scriptsize\color{col2}[#1]}}
-
-\newcommand{\qbox}[1]{%
-\begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=1pt,coltext=black,colframe=col1light,colback=col1,opacityback=0.7,opacityframe=1]
-\strut #1
-\end{tcolorbox}%
-}
 
 \newcommand{\qboxa}[1]{%
 \begin{tcolorbox}[enhanced jigsaw,size=tight,hbox,boxsep=4pt,boxrule=1pt,coltext=textcolor,colframe=col1,opacityback=0,opacityframe=1]
